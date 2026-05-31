@@ -1,0 +1,21 @@
+{
+  "root_files": [
+    "index.html",
+    "README.md"
+  ],
+  "assets": [
+    "kofi_button.png",
+    "kofi_icon.png",
+    "mascot_heureux.png",
+    "pack_outbreak_tout_en_un.svg",
+    "project_101_re1.jpg",
+    "project_doublage_re1.jpg",
+    "project_gaiden_survie.jpg",
+    "project_outbreak_file1.jpg",
+    "project_outbreak_file2.jpg",
+    "project_requiem.jpg",
+    "project_survivor_cv.jpg",
+    "twitch_logo.png"
+  ],
+  "note": "Upload index.html and the assets folder to the root of the GitHub Pages repository."
+}
