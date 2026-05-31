@@ -1,0 +1,25 @@
+{
+  "version": "final_v7",
+  "root_files": [
+    "index.html",
+    "README.md",
+    "manifest.json"
+  ],
+  "assets": [
+    "kofi_button.png",
+    "mascot_heureux.png",
+    "pack_outbreak_tout_en_un.jpg",
+    "project_101_re1.jpg",
+    "project_doublage_re1.jpg",
+    "project_gaiden_survie.jpg",
+    "project_outbreak_file1.jpg",
+    "project_outbreak_file2.jpg",
+    "project_requiem.jpg",
+    "project_survivor_cv.jpg",
+    "twitch_logo.png"
+  ],
+  "note_v4": "Après déblocage, seul le lien Mega s'affiche.",
+  "note_v5": "Bandeau pleine largeur, bouton YouTube unique, plus de panneau intermédiaire, lien Mega seul après 3 secondes.",
+  "note_v6": "Panneau YouTube séparé + bouton Lien bloqué qui devient Lien disponible après 5 secondes.",
+  "note_v7": "Texte inutile supprimé + bouton Ko-fi français fourni par l'utilisateur."
+}
