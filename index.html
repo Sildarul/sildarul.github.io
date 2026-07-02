@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sildarul — Patchs & Projets</title>
+  <meta name="description" content="Page de liens de Sildarul : patchs, projets, traductions françaises et contenus Resident Evil / survival horror.">
+  <style>
+    :root {
+      --bg: #05070b;
+      --panel: rgba(12, 15, 23, .94);
+      --panel2: rgba(23, 27, 39, .92);
+      --text: #f7f1e7;
+      --muted: #bdb4a7;
+      --red: #b91522;
+      --red2: #f03b45;
+      --green: #44d760;
+      --green2: #179438;
+      --gold: #f2c84f;
+      --line: rgba(255,255,255,.14);
+      --shadow: rgba(0,0,0,.55);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(185,21,34,.27), transparent 31rem),
+        radial-gradient(circle at 90% 5%, rgba(40,90,160,.15), transparent 34rem),
+        linear-gradient(145deg, #030408 0%, #080b12 48%, #05070b 100%);
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px),
+        radial-gradient(circle at center, transparent 48%, rgba(0,0,0,.58) 100%);
+      background-size: 46px 46px, 46px 46px, auto;
+      opacity: .52;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1480px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 34px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 22px;
+      padding: 20px 16px 12px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: .92;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+      font-weight: 950;
+      text-shadow: 0 8px 30px #000;
+    }
+
+    .hero h1 .red { color: var(--red2); }
+
+    .hero p {
+      margin: 14px auto 0;
+      max-width: 1030px;
+      color: var(--muted);
+      font-size: clamp(15px, 2vw, 22px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .045em;
+      line-height: 1.45;
+    }
+
+    .hero p b { color: var(--red2); }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px auto 0;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      text-decoration: none;
+      font-weight: 950;
+      background: linear-gradient(145deg, rgba(32,37,50,.95), rgba(9,12,19,.95));
+      box-shadow: 0 12px 28px rgba(0,0,0,.32);
+      transition: transform .16s ease, filter .16s ease;
+    }
+
+    .social-btn:hover { transform: translateY(-2px); filter: brightness(1.09); }
+    .social-btn.youtube { color: #fff; border-color: rgba(240,59,69,.45); }
+    .social-btn.twitch { color: #fff; border-color: rgba(145,88,255,.55); }
+
+    .notice {
+      margin: 20px auto 20px;
+      padding: 16px 20px;
+      max-width: 1120px;
+      border-radius: 22px;
+      border: 1px solid rgba(242,200,79,.38);
+      background: linear-gradient(145deg, rgba(33,24,17,.92), rgba(12,15,23,.90));
+      box-shadow: 0 18px 42px rgba(0,0,0,.32);
+      color: var(--muted);
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .notice strong { color: var(--text); }
+    .notice .green { color: var(--green); }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    .column {
+      display: grid;
+      gap: 16px;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr 132px;
+      gap: 12px;
+      padding: 10px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(145deg, rgba(22,26,38,.94), rgba(7,9,15,.96));
+      box-shadow: 0 18px 44px rgba(0,0,0,.28);
+    }
+
+    .project-row.placeholder { border-color: rgba(185,21,34,.32); }
+
+    .banner {
+      position: relative;
+      overflow: hidden;
+      min-height: 128px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: #060811;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.45);
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      min-height: 128px;
+      object-fit: cover;
+      transition: transform .25s ease, filter .25s ease;
+    }
+
+    .project-row:hover .banner img { transform: scale(1.022); filter: brightness(.93) contrast(1.06); }
+
+    .banner-label {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 34px 14px 12px;
+      background: linear-gradient(to top, rgba(0,0,0,.92), transparent);
+      text-shadow: 0 4px 14px #000;
+    }
+
+    .banner-label b {
+      display: block;
+      font-size: 18px;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .banner-label span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .unlock-btn {
+      border: 0;
+      min-height: 128px;
+      border-radius: 16px;
+      padding: 12px 10px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      font-weight: 950;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(189,21,37,.30);
+      transition: transform .16s ease, filter .16s ease, background .16s ease;
+      font-size: 15px;
+      line-height: 1.15;
+    }
+
+    .unlock-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .unlock-btn:disabled { cursor: wait; opacity: .9; transform: none; }
+
+    .unlock-btn.ready {
+      color: #041008;
+      background: linear-gradient(135deg, var(--green2), var(--green));
+      box-shadow: 0 14px 30px rgba(68,215,96,.25);
+      cursor: pointer;
+    }
+
+    .unlock-btn.soon-ready {
+      color: #1c1300;
+      background: linear-gradient(135deg, #bd8e16, var(--gold));
+      box-shadow: 0 14px 30px rgba(242,200,79,.22);
+    }
+
+    footer {
+      margin-top: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(8,10,15,.72);
+      color: var(--muted);
+      padding: 18px;
+      text-align: center;
+      line-height: 1.55;
+      font-weight: 800;
+    }
+
+    footer b { color: var(--text); }
+    footer .green { color: var(--green); }
+
+    @media (max-width: 1120px) {
+      .board { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 18px, 1480px); padding-top: 14px; }
+      .project-row { grid-template-columns: 1fr; }
+      .unlock-btn { min-height: 54px; }
+      .banner, .banner img { min-height: 116px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1>Mes <span class="red">patchs</span> & projets</h1>
+      <p>Abonne-toi, laisse un <b>commentaire</b>, puis récupère les patchs ci-dessous.</p>
+      <nav class="socials" aria-label="Liens officiels">
+        <a class="social-btn youtube" href="https://www.youtube.com/@laboiteavider" target="_blank" rel="noopener">YouTube</a>
+        <a class="social-btn twitch" href="https://www.twitch.tv/sildarul" target="_blank" rel="noopener">Twitch</a>
+        <a class="social-btn" href="https://discord.gg/2BsrVa5yAy" target="_blank" rel="noopener">Discord</a>
+        <a class="social-btn" href="https://open.spotify.com/show/5o1E0mvy1Sc0j54qyoCV74" target="_blank" rel="noopener">Spotify</a>
+      </nav>
+    </header>
+
+    <section class="notice">
+      <strong>Fonctionnement :</strong> premier clic sur <span class="green">Activer</span> = ouverture de la chaîne YouTube. Après 5 secondes, le bouton devient vert et ouvre le lien du patch.
+    </section>
+
+    <section class="board" aria-label="Liste des patchs et projets">
+      <div class="column real-projects">
+        <article class="project-row">
+          <div class="banner">
+            <img src="assets/banner_gaiden.jpg" alt="Resident Evil Gaiden">
+            <span class="banner-label"><b>Resident Evil Gaiden</b><span>Guide / traduction / corrections en cours</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
+        </article>
+
+        <article class="project-row">
+          <div class="banner">
+            <img src="assets/banner_haunting_ground.jpg" alt="Haunting Ground">
+            <span class="banner-label"><b>Haunting Ground</b><span>Patch et correction française</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://drive.google.com/file/d/1cT3uTXQ7OOCK5Dex2r3xnNNTU_415mon/view?usp=sharing">Activer</button>
+        </article>
+
+        <article class="project-row">
+          <div class="banner">
+            <img src="assets/banner_outbreak.jpg" alt="Resident Evil Outbreak File 1 et 2">
+            <span class="banner-label"><b>Resident Evil Outbreak File #1 & #2</b><span>Patchs, textures et confort</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://mega.nz/file/6iZEEJ4B#C80iutvj9-f8f5l_x9LAhV5vWLgu-WR-P7oI4Z-zLis">Activer</button>
+        </article>
+
+        <article class="project-row">
+          <div class="banner">
+            <img src="assets/banner_luigi_mansion_arcade.jpg" alt="Luigi Mansion Arcade">
+            <span class="banner-label"><b>Luigi Mansion Arcade</b><span>Patch FR — traduction française</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://drive.google.com/file/d/1nwW1qR8OCkUn8i6kE5er3Go8ExKBREPH/view?usp=drive_link">Activer</button>
+        </article>
+      </div>
+
+      <div class="column future-projects">
+        <article class="project-row placeholder">
+          <div class="banner">
+            <img src="assets/banner_unknown.jpg" alt="Prochain projet">
+            <span class="banner-label"><b>???</b><span>Prochain projet</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
+        </article>
+
+        <article class="project-row placeholder">
+          <div class="banner">
+            <img src="assets/banner_unknown.jpg" alt="Prochain projet">
+            <span class="banner-label"><b>???</b><span>Prochain projet</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
+        </article>
+
+        <article class="project-row placeholder">
+          <div class="banner">
+            <img src="assets/banner_unknown.jpg" alt="Prochain projet">
+            <span class="banner-label"><b>???</b><span>Prochain projet</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
+        </article>
+
+        <article class="project-row placeholder">
+          <div class="banner">
+            <img src="assets/banner_unknown.jpg" alt="Prochain projet">
+            <span class="banner-label"><b>???</b><span>Prochain projet</span></span>
+          </div>
+          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <b>Sildarul / La Boîte à Vider</b><br>
+      Patchs, traductions françaises, bidouilles propres et projets survival horror. Dernier lien ajouté : <span class="green">Luigi Mansion Arcade</span>.
+    </footer>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll('.unlock-btn');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const youtubeUrl = button.dataset.youtube;
+        const downloadUrl = button.dataset.download;
+        const soon = button.dataset.soon === 'true';
+
+        if (button.dataset.ready === 'true') {
+          if (soon || !downloadUrl) {
+            button.textContent = 'À venir';
+            button.classList.add('soon-ready');
+            return;
+          }
+          window.open(downloadUrl, '_blank', 'noopener');
+          return;
+        }
+
+        window.open(youtubeUrl, '_blank', 'noopener');
+
+        let seconds = 5;
+        button.disabled = true;
+        button.textContent = 'Attente ' + seconds + 's';
+
+        const timer = setInterval(() => {
+          seconds -= 1;
+          if (seconds > 0) {
+            button.textContent = 'Attente ' + seconds + 's';
+          } else {
+            clearInterval(timer);
+            button.disabled = false;
+            button.dataset.ready = 'true';
+            button.classList.add(soon || !downloadUrl ? 'soon-ready' : 'ready');
+            button.textContent = soon || !downloadUrl ? 'À venir' : 'Télécharger';
+          }
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
