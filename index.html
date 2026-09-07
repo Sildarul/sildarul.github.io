@@ -1,415 +1,722 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sildarul — Patchs & Projets</title>
-  <meta name="description" content="Page de liens de Sildarul : patchs, projets, traductions françaises, doublages, textures et correctifs.">
-  <style>
-    :root {
-      --text: #f7f1e7;
-      --muted: #bdb4a7;
-      --red: #b91522;
-      --red2: #f03b45;
-      --green: #44d760;
-      --green2: #179438;
-      --gold: #f2c84f;
-      --blue: #51b7ff;
-      --line: rgba(255,255,255,.14);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 12% 0%, rgba(185,21,34,.27), transparent 31rem),
-        radial-gradient(circle at 90% 5%, rgba(40,90,160,.15), transparent 34rem),
-        linear-gradient(145deg, #030408 0%, #080b12 48%, #05070b 100%);
-      overflow-x: hidden;
-    }
-
-    body:before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.026) 1px, transparent 1px),
-        radial-gradient(circle at center, transparent 48%, rgba(0,0,0,.58) 100%);
-      background-size: 46px 46px, 46px 46px, auto;
-      opacity: .52;
-    }
-
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: min(1480px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 22px 0 44px;
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 22px;
-      padding: 16px 10px 8px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(44px, 7vw, 86px);
-      line-height: .92;
-      letter-spacing: -.055em;
-      text-transform: uppercase;
-      font-weight: 950;
-      text-shadow: 0 8px 30px #000;
-    }
-
-    .hero h1 .red { color: var(--red2); }
-
-    .hero p {
-      margin: 14px auto 0;
-      max-width: 1030px;
-      color: var(--muted);
-      font-size: clamp(15px, 2vw, 22px);
-      font-weight: 850;
-      text-transform: uppercase;
-      letter-spacing: .045em;
-      line-height: 1.35;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 20px auto 0;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      text-decoration: none;
-      font-weight: 950;
-      background: linear-gradient(145deg, rgba(32,37,50,.95), rgba(9,12,19,.95));
-      box-shadow: 0 12px 28px rgba(0,0,0,.32);
-      transition: transform .16s ease, filter .16s ease;
-    }
-
-    .social-btn:hover { transform: translateY(-2px); filter: brightness(1.09); }
-    .social-btn.youtube { border-color: rgba(240,59,69,.45); }
-    .social-btn.twitch { border-color: rgba(145,88,255,.55); }
-    .social-btn.kofi { border-color: rgba(255,130,38,.45); }
-
-    .board {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      align-items: start;
-      margin-top: 18px;
-    }
-
-    .column {
-      display: grid;
-      gap: 13px;
-    }
-
-    .project-row {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 154px;
-      gap: 10px;
-      min-height: 116px;
-      padding: 8px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(145deg, rgba(22,26,38,.94), rgba(7,9,15,.96));
-      box-shadow: 0 16px 36px rgba(0,0,0,.28);
-    }
-
-    .project-row.placeholder { border-color: rgba(242,200,79,.24); }
-    .project-row.work { border-color: rgba(81,183,255,.22); }
-    .project-row.available { border-color: rgba(68,215,96,.18); }
-
-    .banner {
-      position: relative;
-      overflow: hidden;
-      height: 100px;
-      border-radius: 13px;
-      border: 1px solid rgba(255,255,255,.11);
-      background: linear-gradient(160deg, rgba(22,26,40,.96), rgba(6,8,13,.98));
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,.45);
-      isolation: isolate;
-    }
-
-    .banner .bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      filter: blur(14px) brightness(.55);
-      transform: scale(1.18);
-      opacity: .95;
-      z-index: 0;
-    }
-
-    .banner:after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(5,7,11,.42), rgba(5,7,11,.08) 32%, rgba(5,7,11,.08) 68%, rgba(5,7,11,.42));
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .banner .fg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      padding: 8px 20px;
-      z-index: 2;
-      transition: transform .25s ease, filter .25s ease;
-    }
-
-    .project-row:hover .banner .fg { transform: scale(1.016); filter: brightness(1.04) contrast(1.04); }
-
-    .banner.banner-wide .fg {
-      object-fit: fill;
-      padding: 6px 0;
-    }
-
-    .banner.banner-wide .bg {
-      filter: blur(16px) brightness(.62);
-      transform: scale(1.22);
-    }
-
-
-    .state {
-      position: absolute;
-      top: 7px;
-      right: 8px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      line-height: 1;
-      font-weight: 950;
-      text-transform: uppercase;
-      letter-spacing: .045em;
-      color: #fff;
-      background: rgba(0,0,0,.74);
-      border: 1px solid rgba(255,255,255,.18);
-      text-shadow: 0 2px 8px #000;
-      box-shadow: 0 6px 15px rgba(0,0,0,.34);
-    }
-
-
-    .project-row > .state {
-      top: 16px;
-      right: calc(154px + 24px);
-      z-index: 100;
-      pointer-events: none;
-    }
-
-    .state.available { color: #061108; background: linear-gradient(135deg, var(--green2), var(--green)); }
-    .state.work { color: #03111d; background: linear-gradient(135deg, #59baff, var(--blue)); }
-    .state.soon { color: #180e00; background: linear-gradient(135deg, #bd8e16, var(--gold)); }
-
-    .unlock-btn {
-      border: 0;
-      min-height: 100px;
-      border-radius: 13px;
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      background: linear-gradient(135deg, var(--red), var(--red2));
-      font-weight: 950;
-      text-transform: uppercase;
-      cursor: pointer;
-      box-shadow: 0 12px 24px rgba(189,21,37,.28);
-      transition: transform .16s ease, filter .16s ease, background .16s ease;
-      font-size: 13px;
-      line-height: 1.12;
-    }
-
-    .unlock-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
-    .unlock-btn:disabled { cursor: wait; opacity: .9; transform: none; }
-
-    .unlock-btn.ready {
-      color: #041008;
-      background: linear-gradient(135deg, var(--green2), var(--green));
-      box-shadow: 0 12px 24px rgba(68,215,96,.23);
-      cursor: pointer;
-    }
-
-    .unlock-btn.soon-ready {
-      color: #1c1300;
-      background: linear-gradient(135deg, #bd8e16, var(--gold));
-      box-shadow: 0 12px 24px rgba(242,200,79,.20);
-    }
-
-    footer {
-      margin-top: 24px;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      background: rgba(8,10,15,.72);
-      color: var(--muted);
-      padding: 16px;
-      text-align: center;
-      line-height: 1.45;
-      font-weight: 800;
-    }
-
-    footer b { color: var(--text); }
-
-    @media (max-width: 1120px) {
-      .board { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 680px) {
-      .wrap { width: min(100% - 18px, 1480px); padding-top: 14px; }
-      .project-row { grid-template-columns: 1fr; min-height: auto; }
-      .banner { height: 92px; }
-      .unlock-btn { min-height: 52px; }
-      .state { font-size: 10px; }
-      .project-row > .state { top: 14px; right: 14px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sild'arcade — patchs et traductions françaises</title>
+<meta name="description" content="Traductions françaises, doublages, textures et correctifs pour bornes d'arcade, NES et consoles. Par Sildarul.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="hero">
-      <h1>Mes <span class="red">patchs</span> & projets</h1>
-      <p>Patchs, traductions, doublages, textures et correctifs</p>
-      <nav class="socials" aria-label="Liens officiels">
-        <a class="social-btn youtube" href="https://www.youtube.com/@laboiteavider" target="_blank" rel="noopener">YouTube</a>
-        <a class="social-btn twitch" href="https://www.twitch.tv/sildarul" target="_blank" rel="noopener">Twitch</a>
-        <a class="social-btn" href="https://discord.gg/2BsrVa5yAy" target="_blank" rel="noopener">Discord</a>
-        <a class="social-btn kofi" href="https://ko-fi.com/sildarul" target="_blank" rel="noopener">Ko-fi</a>
-        <a class="social-btn" href="https://open.spotify.com/show/5o1E0mvy1Sc0j54qyoCV74" target="_blank" rel="noopener">Spotify</a>
+
+<div class="wrap">
+
+  <header class="entete">
+    <div class="entete-ligne">
+      <a class="marque" href="index.html">SILD<span>'</span>ARCADE</a>
+      <nav class="menu">
+        <a href="index.html" class="ici">Accueil</a>
+        <a href="arcade.html">Arcade</a>
+        <a href="nes.html">NES / Famicom</a>
+        <a href="consoles.html">Consoles</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <section class="board" aria-label="Liste des patchs et projets">
-      <div class="column real-projects">
-        <article class="project-row work">
-          <div class="banner"><img class="bg" src="assets/banner_gaiden.png" alt="" aria-hidden="true"><img class="fg" src="assets/banner_gaiden.png" alt="Resident Evil Gaiden"></div><span class="state work">En cours</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
-        </article>
+  <section class="chapeau">
+    <h1>Des jeux qui n'avaient jamais parlé français.</h1>
+    <p>Je démonte des cartouches et des bornes d'arcade pour y écrire du français :
+       je cherche le moteur de texte, je dessine les accents qui manquent, je
+       traduis, et je vérifie à l'écran avant de sortir quoi que ce soit.
+       Rien n'est publié sans avoir tourné.</p>
+  <div class="chaine">
+    <a class="youtube" href="https://www.youtube.com/@laboiteavider">YouTube</a>
+    <a class="twitch" href="https://www.twitch.tv/sildarul">Twitch</a>
+    <a class="discord" href="https://discord.gg/2BsrVa5yAy">Discord</a>
+    <a class="kofi" href="https://ko-fi.com/sildarul">Offrir un café</a>
+    <a class="spotify" href="https://open.spotify.com/show/5o1E0mvy1Sc0j54qyoCV74">Le podcast</a>
+  </div>
+  </section>
 
-        <article class="project-row available">
-          <div class="banner"><img class="bg" src="assets/banner_haunting_ground.jpg" alt="" aria-hidden="true"><img class="fg" src="assets/banner_haunting_ground.jpg" alt="Haunting Ground"></div><span class="state available">Disponible</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://drive.google.com/file/d/1cT3uTXQ7OOCK5Dex2r3xnNNTU_415mon/view?usp=sharing">Activer</button>
-        </article>
+  <div class="machines">
+    <a class="machine" href="arcade.html">
+      <h2>Arcade</h2>
+      <p>CPS-1, CPS-2, CPS-3, Neo Geo, Taito, Konami, PGM, Lindbergh, Type X.</p>
+      <div class="nombre" id="nombre-arcade"></div>
+    </a>
+    <a class="machine" href="nes.html">
+      <h2>NES / Famicom</h2>
+      <p>Des cartouches japonaises et américaines, souvent traduites depuis
+         le japonais, et toujours en 60 Hz.</p>
+      <div class="nombre" id="nombre-nes"></div>
+    </a>
+    <a class="machine" href="consoles.html">
+      <h2>Consoles</h2>
+      <p>PlayStation 2, GameCube, Game Boy Color.</p>
+      <div class="nombre" id="nombre-consoles"></div>
+    </a>
+  </div>
 
-        <article class="project-row available">
-          <div class="banner"><img class="bg" src="assets/banner_outbreak.jpg" alt="" aria-hidden="true"><img class="fg" src="assets/banner_outbreak.jpg" alt="Resident Evil Outbreak File #1 et #2"></div><span class="state available">Disponible</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://drive.google.com/file/d/1ngqfOuKsUAwxgQLAz_AA1oaISSJZbby9/view?usp=drive_link">Activer</button>
-        </article>
+  <section class="chapeau">
+    <h1>Tout ce qui est en route</h1>
+    <p>Tous les chantiers, machines confondues. Ce qui est vert se télécharge,
+       le reste avance.</p>
+    <div class="compte" id="compte"></div>
+  </section>
 
-        <article class="project-row available">
-          <div class="banner"><img class="bg" src="assets/banner_luigi_mansion_arcade.jpg" alt="" aria-hidden="true"><img class="fg" src="assets/banner_luigi_mansion_arcade.jpg" alt="Luigi Mansion Arcade"></div><span class="state available">Disponible</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://drive.google.com/file/d/1vpGscA6F780YEbTK5u1SInaoP2TuNy0x/view?usp=drive_link">Activer</button>
-        </article>
-
-        <article class="project-row available">
-          <div class="banner banner-wide"><img class="bg" src="assets/banner_silent_hill_arcade.png" alt="" aria-hidden="true"><img class="fg" src="assets/banner_silent_hill_arcade.png" alt="Silent Hill Arcade"></div><span class="state available">Disponible</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="https://drive.google.com/file/d/1tJwgw3EDVunw41ECYNUqAeRVmEK_Dicd/view?usp=sharing">Activer</button>
-        </article>
+  <div class="filtres" id="filtres"></div>
+  <div class="grille" id="grille">
+      <!-- FICHES -->
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Luigi&#x27;s Mansion Arcade</div>
+          <img class="banniere" src="assets/banner_luigi_mansion_arcade.jpg" alt="Luigi&#x27;s Mansion Arcade">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Luigi&#x27;s Mansion Arcade</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1vpGscA6F780YEbTK5u1SInaoP2TuNy0x/view?usp=drive_link" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Silent Hill Arcade</div>
+          <img class="banniere" src="assets/banner_silent_hill_arcade.png" alt="Silent Hill Arcade">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Silent Hill Arcade</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1tJwgw3EDVunw41ECYNUqAeRVmEK_Dicd/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Retour vers le futur II et III</div>
+          <img class="banniere" src="assets/banner_nes_bttf.jpg" alt="Retour vers le futur II et III">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Retour vers le futur II et III</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1KXsiX2ZO_GVn60hHO1KMHkfbv2R16in1/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Indiana Jones et la dernière croisade</div>
+          <img class="banniere" src="assets/banner_nes_croisade.jpg" alt="Indiana Jones et la dernière croisade">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Indiana Jones et la dernière croisade</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">toute l&#x27;histoire, en minuscules et accentuée</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1yPQXHLnmpnaPsIIl1zehQ_9oZZx2axLc/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Indiana Jones et le Temple maudit</div>
+          <img class="banniere" src="assets/banner_nes_temple.jpg" alt="Indiana Jones et le Temple maudit">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Indiana Jones et le Temple maudit</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/18WAPXKwOuBc7G9ncWq9ez2J1qWcBXsfb/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Mad Max</div>
+          <img class="banniere" src="assets/banner_nes_madmax.jpg" alt="Mad Max">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Mad Max</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1ULd-YOv4esw-2oOhUi4EzjNM74XyBw_V/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Octobre rouge</div>
+          <img class="banniere" src="assets/banner_nes_octobre.jpg" alt="Octobre rouge">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Octobre rouge</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1NuVV0KhbGGTZCHmIVlQvMORmbpF89Eqa/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Platoon</div>
+          <img class="banniere" src="assets/banner_nes_platoon.jpg" alt="Platoon">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Platoon</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1y6QDk_tSecy4AAvXsRy2RfACNh88rRMk/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Wayne&#x27;s World</div>
+          <img class="banniere" src="assets/banner_nes_wayne.jpg" alt="Wayne&#x27;s World">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Wayne&#x27;s World</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1SYb4wj1LoMxKlDBGsI4AmFFRQavfnjf8/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Le Surfer d&#x27;argent</div>
+          <img class="banniere" src="assets/banner_nes_surfer.jpg" alt="Le Surfer d&#x27;argent">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Le Surfer d&#x27;argent</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Marvel</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1U0DQfT1T7U0ALqRx8CLvjwoq-T587Y1q/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Superman</div>
+          <img class="banniere" src="assets/banner_nes_superman.jpg" alt="Superman">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Superman</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">base Kemco (U)</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1C9zpZAtGTTzxaCN_6kj7Gz5sovTKlhk5/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Cliffhanger</div>
+          <img class="banniere" src="assets/banner_nes_cliffhanger.jpg" alt="Cliffhanger">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Cliffhanger</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1h2NFFRd_8_O5FveZBJgbizEyGYRuZgQv/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Last Action Hero</div>
+          <img class="banniere" src="assets/banner_nes_last_action_hero.jpg" alt="Last Action Hero">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Last Action Hero</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/19ptS9NQdqvcpPprUlTL0LQCnKucaN-0a/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Qui veut la peau de Roger Rabbit</div>
+          <img class="banniere" src="assets/banner_nes_roger_rabbit.jpg" alt="Qui veut la peau de Roger Rabbit">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Qui veut la peau de Roger Rabbit</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1lliiMOI0jURFyGfzew8lRLIJnZY-k5XK/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Le Punisher</div>
+          <img class="banniere" src="assets/banner_nes_punisher.jpg" alt="Le Punisher">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Le Punisher</h3>
+          <p class="genre">Traduction FR</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1Il6-LsnN6F37KeXEfUNp9HeJe6tHdaP5/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Haunting Ground</div>
+          <img class="banniere" src="assets/banner_haunting_ground.jpg" alt="Haunting Ground">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Haunting Ground</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">PlayStation 2</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1cT3uTXQ7OOCK5Dex2r3xnNNTU_415mon/view?usp=sharing" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Resident Evil Outbreak File #1 et #2</div>
+          <img class="banniere" src="assets/banner_outbreak.jpg" alt="Resident Evil Outbreak File #1 et #2">
+          <span class="etat disponible">Disponible</span>
+        </div>
+        <div class="corps">
+          <h3>Resident Evil Outbreak File #1 et #2</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">PlayStation 2</p>
+          <a class="bouton actif" href="https://drive.google.com/file/d/1ngqfOuKsUAwxgQLAz_AA1oaISSJZbby9/view?usp=drive_link" rel="noopener">Télécharger</a>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Jurassic Park</div>
+          <img class="banniere" src="assets/banner_jurassic_park.png" alt="Jurassic Park">
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>Jurassic Park</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Raw Thrills — conteneurs .g5 décodés</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Rambo</div>
+          <img class="banniere" src="assets/banner_rambo.png" alt="Rambo">
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>Rambo</h3>
+          <p class="genre">Traduction FR et doublage</p>
+          <p class="note">Sega Lindbergh — les vidéos .sfd refaites</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Time Crisis 5</div>
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>Time Crisis 5</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">340 répliques traduites</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Les Chevaliers du Zodiaque — La Légende d&#x27;Or</div>
+          <img class="banniere" src="assets/banner_nes_zodiaque.jpg" alt="Les Chevaliers du Zodiaque — La Légende d&#x27;Or">
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>Les Chevaliers du Zodiaque — La Légende d&#x27;Or</h3>
+          <p class="genre">Traduction FR</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">L&#x27;Empereur</div>
+          <img class="banniere" src="assets/banner_nes_empereur.jpg" alt="L&#x27;Empereur">
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>L&#x27;Empereur</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Koei — patch IPS</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Dragon Ball - Le Secret du Dragon</div>
+          <img class="banniere" src="assets/banner_nes_dragonball.jpg" alt="Dragon Ball - Le Secret du Dragon">
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>Dragon Ball - Le Secret du Dragon</h3>
+          <p class="genre">Retraduction depuis le japonais</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Resident Evil Gaiden</div>
+          <img class="banniere" src="assets/banner_gaiden.png" alt="Resident Evil Gaiden">
+          <span class="etat encours">En cours</span>
+        </div>
+        <div class="corps">
+          <h3>Resident Evil Gaiden</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Game Boy Color</p>
+          <span class="bouton">En cours de traduction</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Knights of the Round</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Knights of the Round</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1991, CPS-1</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">The King of Dragons</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>The King of Dragons</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1991, CPS-1</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Cadillacs and Dinosaurs</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Cadillacs and Dinosaurs</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1993, CPS-1.5</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Dungeons &amp; Dragons — Shadow over Mystara</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Dungeons &amp; Dragons — Shadow over Mystara</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1996, CPS-2</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Battle Circuit</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Battle Circuit</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1997, CPS-2</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Alien vs Predator</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Alien vs Predator</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1994, CPS-2</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Red Earth</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Red Earth</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1996, CPS-3</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Black Tiger</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Black Tiger</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Capcom 1987</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Light Bringer / Dungeon Magic</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Light Bringer / Dungeon Magic</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Taito F3</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Warrior Blade — Rastan Saga Episode III</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Warrior Blade — Rastan Saga Episode III</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Taito 1991, double écran</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Chaos Breaker</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Chaos Breaker</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Taito Type X</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Metamorphic Force</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Metamorphic Force</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Konami 1993</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Gaiapolis</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Gaiapolis</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Konami 1993</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Crossed Swords</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Crossed Swords</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">ADK 1991, Neo Geo</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Sengoku 3</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Sengoku 3</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">SNK 2001, Neo Geo</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Shadow Force</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Shadow Force</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Technos 1993</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Wizard Fire / Dark Seal II</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Wizard Fire / Dark Seal II</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Data East 1992</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Hook</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Hook</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Irem 1992, M92</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Rygar</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Rygar</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">Tecmo 1986</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">The Gladiator / Shen Jian</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>The Gladiator / Shen Jian</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">IGS 2003, PGM</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Knights of Valour Super Heroes Plus</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Knights of Valour Super Heroes Plus</h3>
+          <p class="genre">Traduction FR</p>
+          <p class="note">IGS, PGM</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Nosferatu Lilinor</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Nosferatu Lilinor</h3>
+          <p class="genre">Correctif</p>
+          <p class="note">Sega ALLS — le français dort déjà dans le jeu</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Mitsume ga Tooru — L&#x27;Enfant aux trois yeux</div>
+          <img class="banniere" src="assets/banner_nes_mitsume.jpg" alt="Mitsume ga Tooru — L&#x27;Enfant aux trois yeux">
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Mitsume ga Tooru — L&#x27;Enfant aux trois yeux</h3>
+          <p class="genre">Traduction FR depuis le japonais</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Samouraï Pizza Cats</div>
+          <img class="banniere" src="assets/banner_nes_pizza_cats.jpg" alt="Samouraï Pizza Cats">
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Samouraï Pizza Cats</h3>
+          <p class="genre">Traduction FR depuis le japonais</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Edgar de la Cambriole — L&#x27;Héritage de Pandore</div>
+          <img class="banniere" src="assets/banner_nes_edgar.jpg" alt="Edgar de la Cambriole — L&#x27;Héritage de Pandore">
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Edgar de la Cambriole — L&#x27;Héritage de Pandore</h3>
+          <p class="genre">Traduction FR</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Ultraman Club 3</div>
+          <img class="banniere" src="assets/banner_nes_ultraman.jpg" alt="Ultraman Club 3">
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Ultraman Club 3</h3>
+          <p class="genre">Traduction FR depuis le japonais</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Shadowgate</div>
+          <img class="banniere" src="assets/banner_nes_shadowgate.jpg" alt="Shadowgate">
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Shadowgate</h3>
+          <p class="genre">Conversion 50 Hz vers 60 Hz</p>
+          <p class="note">la VF PAL passée en NTSC</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <article class="fiche">
+        <div class="visuel">
+          <div class="sigle">Le Seigneur des Anneaux — Le Tiers Âge</div>
+          <span class="etat chantier">En chantier</span>
+        </div>
+        <div class="corps">
+          <h3>Le Seigneur des Anneaux — Le Tiers Âge</h3>
+          <p class="genre">Codes de triche</p>
+          <p class="note">GameCube</p>
+          <span class="bouton">En chantier</span>
+        </div>
+      </article>
+      <!-- FIN FICHES -->
       </div>
 
-      <div class="column future-projects">
-        <article class="project-row work">
-          <div class="banner banner-wide"><img class="bg" src="assets/banner_jurassic_park.png" alt="" aria-hidden="true"><img class="fg" src="assets/banner_jurassic_park.png" alt="Jurassic Park"></div><span class="state work">En cours</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
-        </article>
+  <footer class="pied">
+    <p><strong>Sild'arcade production</strong> — Sildarul / La Boîte à Vider</p>
+    <p>Les patchs distribués ici ne contiennent aucun jeu : ce sont des
+       correctifs à appliquer sur votre propre copie.</p>
+    <p><a href="https://ko-fi.com/sildarul">Offrir un café</a> ·
+       <a href="https://www.youtube.com/@laboiteavider">YouTube</a> ·
+       <a href="https://www.twitch.tv/sildarul">Twitch</a> ·
+       <a href="https://discord.gg/2BsrVa5yAy">Discord</a></p>
+  </footer>
 
-        <article class="project-row work">
-          <div class="banner banner-wide"><img class="bg" src="assets/banner_rambo.png" alt="" aria-hidden="true"><img class="fg" src="assets/banner_rambo.png" alt="Rambo"></div><span class="state work">En cours</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
-        </article>
+</div>
 
-        <article class="project-row placeholder">
-          <div class="banner"><img class="bg" src="assets/banner_unknown.jpg" alt="" aria-hidden="true"><img class="fg" src="assets/banner_unknown.jpg" alt="Prochain projet"></div><span class="state soon">À venir</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
-        </article>
-
-        <article class="project-row placeholder">
-          <div class="banner"><img class="bg" src="assets/banner_unknown.jpg" alt="" aria-hidden="true"><img class="fg" src="assets/banner_unknown.jpg" alt="Prochain projet"></div><span class="state soon">À venir</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
-        </article>
-
-        <article class="project-row placeholder">
-          <div class="banner"><img class="bg" src="assets/banner_unknown.jpg" alt="" aria-hidden="true"><img class="fg" src="assets/banner_unknown.jpg" alt="Prochain projet"></div><span class="state soon">À venir</span>
-          <button class="unlock-btn" type="button" data-youtube="https://www.youtube.com/@laboiteavider" data-download="" data-soon="true">Activer</button>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      <b>Sildarul / La Boîte à Vider</b>
-    </footer>
-  </main>
-
-  <script>
-    const buttons = document.querySelectorAll('.unlock-btn');
-
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const youtubeUrl = button.dataset.youtube;
-        const downloadUrl = button.dataset.download;
-        const soon = button.dataset.soon === 'true';
-
-        if (button.dataset.ready === 'true') {
-          if (soon || !downloadUrl) {
-            button.textContent = 'À venir';
-            button.classList.add('soon-ready');
-            return;
-          }
-          window.open(downloadUrl, '_blank', 'noopener');
-          return;
-        }
-
-        window.open(youtubeUrl, '_blank', 'noopener');
-
-        let seconds = 5;
-        button.disabled = true;
-        button.textContent = 'Attente ' + seconds + 's';
-
-        const timer = setInterval(() => {
-          seconds -= 1;
-          if (seconds > 0) {
-            button.textContent = 'Attente ' + seconds + 's';
-          } else {
-            clearInterval(timer);
-            button.disabled = false;
-            button.dataset.ready = 'true';
-            button.classList.add(soon || !downloadUrl ? 'soon-ready' : 'ready');
-            button.textContent = soon || !downloadUrl ? 'À venir' : 'Télécharger';
-          }
-        }, 1000);
-      });
-    });
-  </script>
+<script src="projets.js"></script>
+<script src="site.js"></script>
 </body>
 </html>
