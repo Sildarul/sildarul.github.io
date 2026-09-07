@@ -1,0 +1,415 @@
+/* ==================================================================
+   SILD'ARCADE - la feuille de style du site
+   ------------------------------------------------------------------
+   Les valeurs sont ecrites EN CLAIR dans chaque regle, exprès : pour
+   changer une couleur ou une marge, on change le nombre sur place, on
+   ne va pas le chercher ailleurs.
+
+   LES COULEURS DE LA MAISON, si tu veux les retrouver :
+     le texte        #f7f1e7      le fond          #0d0b10
+     le rouge        #b91522      le vert          #44d760
+     le bleu         #51b7ff      l'or             #f2c84f
+     le gris du bord #2a2530      le gris du texte #9a92a4
+   ================================================================== */
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0b10;
+    background-image:
+        radial-gradient(1200px 600px at 50% -10%, rgba(185, 21, 34, 0.22), rgba(0, 0, 0, 0)),
+        radial-gradient(900px 500px at 85% 15%, rgba(81, 183, 255, 0.10), rgba(0, 0, 0, 0)),
+        linear-gradient(180deg, #14111a 0%, #0d0b10 55%, #0a080d 100%);
+    background-attachment: fixed;
+    color: #f7f1e7;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: #51b7ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ---------------------------------------------------------------- */
+/* LE BANDEAU DU HAUT                                               */
+/* ---------------------------------------------------------------- */
+
+.entete {
+    padding-top: 26px;
+    padding-bottom: 10px;
+}
+
+.entete-ligne {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.marque {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #f7f1e7;
+}
+.marque span { color: #b91522; }
+.marque:hover { text-decoration: none; }
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.menu a {
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border: 1px solid #2a2530;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.02);
+    color: #d9d2e0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+.menu a:hover {
+    border-color: #b91522;
+    color: #f7f1e7;
+    text-decoration: none;
+}
+.menu a.ici {
+    border-color: #b91522;
+    background-color: rgba(185, 21, 34, 0.18);
+    color: #f7f1e7;
+}
+
+/* ---------------------------------------------------------------- */
+/* LE TITRE DE PAGE                                                 */
+/* ---------------------------------------------------------------- */
+
+.chapeau {
+    padding-top: 34px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #201c28;
+    margin-bottom: 30px;
+}
+
+.chapeau h1 {
+    margin: 0 0 12px 0;
+    font-size: 44px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.chapeau p {
+    margin: 0;
+    max-width: 720px;
+    color: #9a92a4;
+    font-size: 17px;
+}
+
+.chapeau .compte {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 5px 12px;
+    border: 1px solid #2a2530;
+    border-radius: 999px;
+    color: #9a92a4;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+}
+
+/* ---------------------------------------------------------------- */
+/* LES LIENS DE LA CHAINE                                           */
+/* ---------------------------------------------------------------- */
+
+.chaine {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 18px;
+}
+
+.chaine a {
+    display: inline-block;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid #2a2530;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #f7f1e7;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.chaine a:hover { text-decoration: none; transform: translateY(-1px); }
+.chaine a.youtube:hover  { border-color: #ff3d3d; color: #ff8a8a; }
+.chaine a.twitch:hover   { border-color: #9146ff; color: #c4a2ff; }
+.chaine a.discord:hover  { border-color: #5865f2; color: #a3abff; }
+.chaine a.kofi           { border-color: #f2c84f; color: #f2c84f; }
+.chaine a.kofi:hover     { background-color: rgba(242, 200, 79, 0.14); }
+.chaine a.spotify:hover  { border-color: #1db954; color: #6ee79a; }
+
+/* ---------------------------------------------------------------- */
+/* LES GRANDES TUILES DE L'ACCUEIL                                  */
+/* ---------------------------------------------------------------- */
+
+.machines {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 8px;
+    margin-bottom: 46px;
+}
+
+.machine {
+    display: block;
+    padding: 26px 24px 22px 24px;
+    border: 1px solid #2a2530;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.025);
+    color: #f7f1e7;
+}
+.machine:hover {
+    border-color: #b91522;
+    background-color: rgba(185, 21, 34, 0.10);
+    text-decoration: none;
+}
+.machine h2 {
+    margin: 0 0 6px 0;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+}
+.machine p {
+    margin: 0 0 14px 0;
+    color: #9a92a4;
+    font-size: 15px;
+}
+.machine .nombre {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #f2c84f;
+}
+
+/* ---------------------------------------------------------------- */
+/* LA GRILLE DES PROJETS                                            */
+/* ---------------------------------------------------------------- */
+
+/* sans JavaScript ces deux blocs restent vides : on les efface plutot
+   que de laisser une pastille creuse au milieu de la page */
+.compte:empty,
+.filtres:empty { display: none; }
+
+.filtres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.filtres button {
+    padding: 8px 15px;
+    border: 1px solid #2a2530;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.02);
+    color: #9a92a4;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.filtres button:hover { color: #f7f1e7; border-color: #4a4356; }
+.filtres button.actif {
+    border-color: #b91522;
+    background-color: rgba(185, 21, 34, 0.20);
+    color: #f7f1e7;
+}
+
+.grille {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.fiche {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #2a2530;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.025);
+    overflow: hidden;
+}
+.fiche:hover { border-color: #4a4356; }
+
+.visuel {
+    position: relative;
+    aspect-ratio: 760 / 190;   /* le format exact des bannieres : elles
+                                  s'affichent entieres, jamais rognees */
+    min-height: 96px;
+    background-position: center center;
+    background-size: cover;
+    background-color: #17141d;
+    border-bottom: 1px solid #2a2530;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    text-align: center;
+}
+
+.visuel .banniere {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.visuel .sigle {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(247, 241, 231, 0.34);
+    line-height: 1.15;
+}
+
+.etat {
+    position: absolute;
+    /* en bas a droite, sous le « PATCH FR » de la banniere : a gauche
+       elle se posait en plein sur le logo du jeu et cassait l'effet */
+    bottom: 9px;
+    right: 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.etat.disponible { background-color: #44d760; color: #08240f; }
+.etat.encours    { background-color: #f2c84f; color: #2a2003; }
+.etat.chantier   { background-color: #3a3444; color: #cfc7d8; }
+
+.corps {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 16px 16px 18px 16px;
+}
+
+.corps h3 {
+    margin: 0 0 4px 0;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.corps .genre {
+    margin: 0 0 2px 0;
+    color: #51b7ff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.corps .note {
+    margin: 0;
+    color: #9a92a4;
+    font-size: 13px;
+}
+
+.bouton {
+    display: block;               /* la fiche ecrite en dur utilise un lien
+                                     <a> ; le JavaScript un <button>. Les
+                                     deux doivent avoir la meme allure. */
+    text-decoration: none;
+    margin-top: 16px;
+    padding: 11px 14px;
+    width: 100%;
+    border: 1px solid #2a2530;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #9a92a4;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    cursor: default;
+}
+
+.bouton.actif {
+    border-color: #44d760;
+    background-color: rgba(68, 215, 96, 0.14);
+    color: #8bf0a4;
+    cursor: pointer;
+}
+.bouton.actif:hover { background-color: rgba(68, 215, 96, 0.24); color: #ffffff; text-decoration: none; }
+
+.bouton.attente {
+    border-color: #f2c84f;
+    background-color: rgba(242, 200, 79, 0.12);
+    color: #f2c84f;
+    cursor: default;
+}
+
+/* ---------------------------------------------------------------- */
+/* LE PIED DE PAGE                                                  */
+/* ---------------------------------------------------------------- */
+
+.pied {
+    margin-top: 20px;
+    padding-top: 26px;
+    padding-bottom: 40px;
+    border-top: 1px solid #201c28;
+    color: #6f6879;
+    font-size: 13px;
+}
+.pied p { margin: 0 0 6px 0; }
+
+/* ---------------------------------------------------------------- */
+/* LES ECRANS ETROITS                                               */
+/* ---------------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+    .grille   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .machines { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .chapeau h1 { font-size: 34px; }
+}
+
+@media (max-width: 660px) {
+    .grille   { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .machines { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .chapeau h1 { font-size: 28px; }
+    .entete-ligne { justify-content: center; }
+    .wrap { padding-left: 14px; padding-right: 14px; }
+}
