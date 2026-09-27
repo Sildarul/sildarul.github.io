@@ -49,9 +49,6 @@ const PROJETS = [
     genre: "Traduction FR et doublage", image: "assets/banner_rambo.png",
     note: "Sega", lien: "" },
 
-  { titre: "Time Crisis 5", machine: "arcade", etat: "encours",
-    genre: "Traduction FR", note: "340 répliques traduites", lien: "" },
-
   { titre: "Knights of the Round", machine: "arcade", etat: "chantier",
     genre: "Traduction FR", note: "Capcom 1991", lien: "" },
   { titre: "The King of Dragons", machine: "arcade", etat: "chantier",
