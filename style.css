@@ -236,6 +236,14 @@ a:hover { text-decoration: underline; }
     background-color: rgba(185, 21, 34, 0.10);
     text-decoration: none;
 }
+/* la tuile des soutiens : l'or de Ko-fi */
+.machine.speciale { border-color: rgba(242, 200, 79, 0.45); }
+.machine.speciale:hover {
+    border-color: #f2c84f;
+    background-color: rgba(242, 200, 79, 0.10);
+}
+.machine.speciale h2 { color: #f2c84f; }
+
 .machine h2 {
     margin: 0 0 6px 0;
     font-size: 26px;

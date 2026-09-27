@@ -191,11 +191,15 @@ function filtres(grille, liste) {
 /* les nombres des grandes tuiles de l'accueil */
 function compter() {
     if (typeof PROJETS === "undefined") return;
-    ["arcade", "nes", "snes", "consoles"].forEach(function (m) {
+    ["arcade", "nes", "snes", "consoles", "soutiens"].forEach(function (m) {
         const cible = document.getElementById("nombre-" + m);
         if (!cible) return;
         const n = PROJETS.filter(function (p) { return p.machine === m; }).length;
         const d = PROJETS.filter(function (p) { return p.machine === m && p.etat === "disponible"; }).length;
+        if (m === "soutiens") {
+            cible.textContent = n + " traductions pour les soutiens";
+            return;
+        }
         cible.textContent = n ? n + " projets" + (d ? " — " + d + " à télécharger" : "")
                               : "Bientôt";
     });
