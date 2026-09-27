@@ -130,3 +130,12 @@ AJOUTER UNE CONSOLE (par exemple la Mega Drive chez Sega)
 3. Ajouter "megadrive" au bon constructeur dans MARQUES, en bas de
    site.js, pour que les compteurs en tiennent compte.
 4. Ajouter sa tuile dans la page du constructeur (sega.html).
+
+PHOTOS DES TUILES DE L'ACCUEIL
+- Les tuiles Arcade / Nintendo / Sony / Sega / Spécial de index.html ont une
+  vitrine en haut : <div class="photo photo-xxx"><img src="assets/tuile_xxx.webp"></div>.
+- Photos : assets/tuile_nintendo.webp (Super Famicom), assets/tuile_sony.webp
+  (PlayStation). Détourées (fond transparent), ~720 px de large, en webp.
+- Sega n'a pas encore de photo : un logo "SEGA" en texte tient la place.
+  Pour mettre une photo, remplacer <span>SEGA</span> par <img src="assets/tuile_sega.webp" alt="">.
+- La lueur derrière chaque console se règle dans style.css (--lueur).
