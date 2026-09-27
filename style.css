@@ -130,6 +130,23 @@ a:hover { text-decoration: underline; }
     font-size: 17px;
 }
 
+/* le logo a gauche du chapeau (accueil : Sild'arcade, NES : Reset 60).
+   Les deux images ont un fond opaque : le masque en degrade fond leurs
+   bords dans le fond du site, sinon on verrait un carre. */
+.chapeau.avec-logo {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+.logo-chapeau {
+    flex-shrink: 0;
+    width: 220px;
+    height: 220px;
+    -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+}
+.chapeau-texte { min-width: 0; }
+
 .chapeau .compte {
     display: inline-block;
     margin-top: 14px;
@@ -419,6 +436,10 @@ a:hover { text-decoration: underline; }
 }
 
 @media (max-width: 660px) {
+    .chapeau.avec-logo { flex-direction: column; text-align: center; gap: 12px; }
+    .chapeau.avec-logo p { margin-left: auto; margin-right: auto; }
+    .chapeau.avec-logo .chaine { justify-content: center; }
+    .logo-chapeau { width: 170px; height: 170px; }
     .grille   { grid-template-columns: repeat(1, minmax(0, 1fr)); }
     .machines { grid-template-columns: repeat(1, minmax(0, 1fr)); }
     .chapeau h1 { font-size: 28px; }
