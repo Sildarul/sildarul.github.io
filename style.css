@@ -377,9 +377,37 @@ a:hover { text-decoration: underline; }
 .photo-sega     { --lueur: rgba(23, 105, 255, 0.45); }
 /* consoles noires sur fond sombre : un fin liseré clair pour les détacher */
 .machine .photo-sega img,
+.machine .photo-sombre img,
 .machine .photo-duo img:nth-child(2) {
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.35)) drop-shadow(0 10px 12px rgba(0, 0, 0, 0.55));
 }
+/* en attendant une photo : le nom de la console dans ses couleurs */
+.photo-texte { align-items: center; }
+.photo-texte span {
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-align: center;
+    transition: transform 0.25s ease;
+}
+.machine:hover .photo-texte span { transform: scale(1.07) rotate(-2deg); }
+.photo-texte small { display: block; font-size: 0.42em; letter-spacing: 4px; margin-top: 4px; }
+.logo-n64 span { font-size: 58px; font-style: normal; letter-spacing: -2px; }
+.logo-n64 b { display: inline-block; text-shadow: 0 4px 0 rgba(0, 0, 0, 0.35); }
+.n64-r { color: #e4262e; transform: rotate(-6deg); }
+.n64-v { color: #1faa4b; transform: translateY(-4px); }
+.n64-b { color: #2a6ce8; transform: rotate(6deg); }
+.logo-gb span {
+    font-size: 30px;
+    background: linear-gradient(90deg, #e4262e, #f2c84f, #1faa4b, #2a6ce8, #8b4fd6);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.logo-gb small { letter-spacing: 8px; }
+.logo-gc span { font-size: 25px; letter-spacing: 0; color: #9a8cff; text-shadow: 0 0 16px rgba(106, 90, 205, 0.7); }
+.logo-ms span { font-size: 34px; color: #f7f1e7; text-shadow: 0 0 14px rgba(210, 20, 30, 0.8); }
+.logo-ms small { color: #e4262e; letter-spacing: 6px; }
+
 /* deux consoles dans la même vitrine : la seconde passe devant */
 .machine .photo-duo img { max-width: 53%; max-height: 92%; }
 .machine .photo-duo img:nth-child(1) { margin-right: -6%; margin-bottom: 12px; }
