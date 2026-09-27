@@ -130,18 +130,28 @@ function remplir() {
     const compte = document.getElementById("compte");
     if (compte) {
         const dispo = liste.filter(function (p) { return p.etat === "disponible"; }).length;
-        compte.textContent = liste.length + " projets, dont " + dispo + " téléchargeables";
+        compte.textContent = liste.length
+            ? liste.length + " projets, dont " + dispo + " téléchargeables"
+            : "En préparation";
     }
 }
 
 function dessiner(grille, liste) {
     grille.innerHTML = "";
     liste.forEach(function (p) { grille.appendChild(fiche(p)); });
+    /* une machine sans projet encore : on le dit plutot qu'un trou */
+    if (!liste.length) {
+        const vide = document.createElement("p");
+        vide.className = "vide";
+        vide.textContent = "Les premiers jeux arrivent bientôt.";
+        grille.appendChild(vide);
+    }
 }
 
 function filtres(grille, liste) {
     const barre = document.getElementById("filtres");
     if (!barre) return;
+    if (!liste.length) { barre.innerHTML = ""; return; }
     const choix = [
         ["", "Tout"],
         ["disponible", "Disponibles"],
@@ -165,12 +175,13 @@ function filtres(grille, liste) {
 /* les nombres des grandes tuiles de l'accueil */
 function compter() {
     if (typeof PROJETS === "undefined") return;
-    ["arcade", "nes", "consoles"].forEach(function (m) {
+    ["arcade", "nes", "snes", "consoles"].forEach(function (m) {
         const cible = document.getElementById("nombre-" + m);
         if (!cible) return;
         const n = PROJETS.filter(function (p) { return p.machine === m; }).length;
         const d = PROJETS.filter(function (p) { return p.machine === m && p.etat === "disponible"; }).length;
-        cible.textContent = n + " projets" + (d ? " — " + d + " à télécharger" : "");
+        cible.textContent = n ? n + " projets" + (d ? " — " + d + " à télécharger" : "")
+                              : "Bientôt";
     });
 }
 

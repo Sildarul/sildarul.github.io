@@ -8,7 +8,7 @@
 
      {
        titre:    "Le nom du jeu",
-       machine:  "arcade",          arcade | nes | consoles
+       machine:  "arcade",          arcade | nes | snes | consoles
        etat:     "disponible",      disponible | encours | chantier
        genre:    "Traduction FR",   ce qu'on a fait dessus
        note:     "une phrase",      facultatif, s'affiche sous le titre
@@ -171,6 +171,10 @@ const PROJETS = [
   { titre: "Shadowgate", machine: "nes", etat: "chantier",
     genre: "Conversion 50 Hz vers 60 Hz", image: "assets/banner_nes_shadowgate.jpg",
     lien: "" },
+
+  /* ======================= SUPER NINTENDO ========================= */
+  /* (les projets Super Nintendo / Super Famicom se rangent ici,
+      avec machine: "snes") */
 
   /* =========================== CONSOLES =========================== */
   { titre: "Haunting Ground", machine: "consoles", etat: "disponible",

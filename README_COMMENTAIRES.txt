@@ -5,7 +5,8 @@ COMMENT C'EST FAIT
 ----------------------------------------------------------------------
   index.html      l'accueil : les trois machines, puis tous les projets
   arcade.html     les bornes d'arcade
-  nes.html        NES et Famicom
+  nes.html        NES et Famicom (projet Reset 60)
+  snes.html       Super Nintendo et Super Famicom (projet Reset 60)
   consoles.html   PlayStation 2, GameCube, Game Boy Color
 
   projets.js      LE CATALOGUE. C'est le seul fichier a modifier.
@@ -23,13 +24,13 @@ COMMENT C'EST FAIT
 
 AJOUTER OU SORTIR UN PROJET
 ----------------------------------------------------------------------
-Tout se passe dans projets.js, et NULLE PART AILLEURS. Les quatre pages
+Tout se passe dans projets.js, et NULLE PART AILLEURS. Les cinq pages
 se remplissent toutes seules a partir de ce fichier.
 
 Pour ajouter un projet, recopie un bloc existant :
 
   { titre: "Le nom du jeu",
-    machine: "arcade",            arcade | nes | consoles
+    machine: "arcade",            arcade | nes | snes | consoles
     etat: "chantier",             disponible | encours | chantier
     genre: "Traduction FR",
     note: "une precision",        facultatif
@@ -52,7 +53,7 @@ precaution, les titres des jeux n'existeraient nulle part dans le HTML
 et Google pourrait passer a cote.
 
 refaire_les_pages.py recopie donc toutes les fiches EN DUR dans les
-quatre pages, entre <!-- FICHES --> et <!-- FIN FICHES -->. Le
+cinq pages, entre <!-- FICHES --> et <!-- FIN FICHES -->. Le
 JavaScript les redessine ensuite par-dessus a l'ouverture : les deux
 disent la meme chose. Et la page reste entierement lisible meme avec le
 JavaScript coupe.

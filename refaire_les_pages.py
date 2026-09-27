@@ -8,7 +8,7 @@ et remplir les pages tout seul... mais UN MOTEUR DE RECHERCHE, LUI, NE
 LIT PAS TOUJOURS LE JAVASCRIPT. Sans ce script, les 52 titres n'existent
 nulle part dans le HTML et Google peut passer a cote.
 
-Ce script recopie donc les fiches EN DUR dans les quatre pages, entre les
+Ce script recopie donc les fiches EN DUR dans les pages, entre les
 deux reperes <!-- FICHES --> et <!-- FIN FICHES -->. Le JavaScript les
 redessine ensuite par-dessus a l'ouverture : les deux disent la meme
 chose, et la page reste lisible meme sans JavaScript.
@@ -19,7 +19,7 @@ import io, os, re, html, datetime
 
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 PAGES = {"index.html": None, "arcade.html": "arcade",
-         "nes.html": "nes", "consoles.html": "consoles"}
+         "nes.html": "nes", "snes.html": "snes", "consoles.html": "consoles"}
 ADRESSE = "https://sildarul.github.io/"
 LIBELLE = {"disponible": "Disponible", "encours": "En cours", "chantier": "En chantier"}
 BOUTON = {"disponible": "Télécharger", "encours": "En cours de traduction",
@@ -76,7 +76,8 @@ def refaire():
             continue
         liste = [p for p in projets if not machine or p.get("machine") == machine]
         liste.sort(key=lambda p: ORDRE.get(p.get("etat"), 9))
-        fiches = "\n".join(fiche(p) for p in liste)
+        fiches = "\n".join(fiche(p) for p in liste) if liste else \
+            '      <p class="vide">Les premiers jeux arrivent bientôt.</p>'
         t = io.open(chemin, encoding="utf-8").read()
         neuf = '<!-- FICHES -->\n%s\n      <!-- FIN FICHES -->' % fiches
         if "<!-- FICHES -->" in t:
@@ -90,7 +91,7 @@ def refaire():
     aujourdhui = datetime.date.today().isoformat()
     s = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for page in ("index.html", "arcade.html", "nes.html", "consoles.html"):
+    for page in PAGES:
         adr = ADRESSE if page == "index.html" else ADRESSE + page
         s += ["  <url>", "    <loc>%s</loc>" % adr,
               "    <lastmod>%s</lastmod>" % aujourdhui,
