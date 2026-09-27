@@ -10,6 +10,7 @@ COMMENT C'EST FAIT
     snes.html       Super Nintendo et Super Famicom (projet Reset 60)
     n64.html        Nintendo 64
     gb.html         Game Boy et Game Boy Color
+    gba.html        Game Boy Advance
     gamecube.html   GameCube
   sony.html       la page Sony : une tuile par console
     ps1.html        PlayStation
@@ -41,7 +42,7 @@ se remplissent toutes seules a partir de ce fichier.
 Pour ajouter un projet, recopie un bloc existant :
 
   { titre: "Le nom du jeu",
-    machine: "arcade",            arcade | nes | snes | n64 | gb | gamecube
+    machine: "arcade",            arcade | nes | snes | n64 | gb | gba | gamecube
                                   | ps1 | ps2 | mastersystem | megadrive | soutiens
     etat: "chantier",             disponible | encours | chantier | soutien
     genre: "Traduction FR",

@@ -381,6 +381,11 @@ a:hover { text-decoration: underline; }
 .machine .photo-duo img:nth-child(2) {
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.35)) drop-shadow(0 10px 12px rgba(0, 0, 0, 0.55));
 }
+/* page Nintendo : six consoles, deux rangées de trois */
+@media (min-width: 1001px) {
+    .machines.trois { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 /* en attendant une photo : le nom de la console dans ses couleurs */
 .photo-texte { align-items: center; }
 .photo-texte span {

@@ -20,7 +20,7 @@ import io, os, re, html, datetime
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 PAGES = {"index.html": None, "arcade.html": "arcade",
          "nes.html": "nes", "snes.html": "snes", "n64.html": "n64",
-         "gb.html": "gb", "gamecube.html": "gamecube",
+         "gb.html": "gb", "gba.html": "gba", "gamecube.html": "gamecube",
          "ps1.html": "ps1", "ps2.html": "ps2",
          "mastersystem.html": "mastersystem", "megadrive.html": "megadrive", "soutiens.html": "soutiens"}
 # les pages sans fiches (constructeurs) : seulement dans le sitemap

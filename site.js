@@ -191,7 +191,7 @@ function filtres(grille, liste) {
 
 /* les nombres des tuiles : une machine, ou un constructeur entier */
 const MARQUES = {
-    nintendo: ["nes", "snes", "n64", "gb", "gamecube"],
+    nintendo: ["nes", "snes", "n64", "gb", "gba", "gamecube"],
     sony:     ["ps1", "ps2"],
     sega:     ["mastersystem", "megadrive"]
 };
