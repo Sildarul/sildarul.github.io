@@ -214,6 +214,74 @@ a:hover { text-decoration: underline; }
 }
 
 /* ---------------------------------------------------------------- */
+/* LE GRAND ENCART DE LA COLLECTION (page des soutiens)             */
+/* ---------------------------------------------------------------- */
+
+.collection {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 34px;
+    border: 2px solid #f2c84f;
+    border-radius: 18px;
+    background-color: #0d0b10;
+    color: #f7f1e7;
+    box-shadow: 0 0 40px rgba(242, 200, 79, 0.12);
+}
+.collection:hover { text-decoration: none; box-shadow: 0 0 50px rgba(242, 200, 79, 0.25); }
+
+/* la mosaique des bannieres, en fond */
+.collection-mosaique {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    padding: 4px;
+    opacity: 0.9;
+    transform: rotate(-4deg) scale(1.18);
+}
+.collection-mosaique img { width: 100%; aspect-ratio: 760 / 190; object-fit: cover; border-radius: 4px; }
+.collection:hover .collection-mosaique { opacity: 1; }
+
+/* le texte, sur un voile sombre */
+.collection-texte {
+    position: relative;
+    padding: 46px 30px;
+    text-align: center;
+    background: radial-gradient(ellipse 48% 62% at center, rgba(13, 11, 16, 0.93) 0%, rgba(13, 11, 16, 0.86) 60%, rgba(13, 11, 16, 0.15) 100%);
+}
+.collection-texte .collection-sur {
+    margin: 0 auto 6px auto;
+    color: #f2c84f;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.collection-texte h2 { margin: 0 0 10px 0; font-size: 38px; font-weight: 800; line-height: 1.1; }
+.collection-texte p { max-width: 620px; margin: 0 auto; color: #d8d0e0; font-size: 17px; }
+.collection-texte strong { color: #f7f1e7; }
+.collection-bouton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    background-color: #f2c84f;
+    color: #2a2003;
+    font-weight: 800;
+    font-size: 16px;
+}
+.collection:hover .collection-bouton { background-color: #ffd96b; }
+.collection-texte .collection-note { margin-top: 12px; color: #9a92a4; font-size: 13px; }
+
+@media (max-width: 660px) {
+    .collection-mosaique { grid-template-columns: repeat(3, 1fr); }
+    .collection-texte { padding: 34px 18px; background: rgba(13, 11, 16, 0.8); }
+    .collection-texte h2 { font-size: 28px; }
+}
+
+/* ---------------------------------------------------------------- */
 /* LES LIENS DE LA CHAINE                                           */
 /* ---------------------------------------------------------------- */
 
