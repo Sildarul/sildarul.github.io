@@ -372,8 +372,7 @@ a:hover { text-decoration: underline; }
 .machine:hover .photo img { transform: translateY(-4px) scale(1.05); }
 .photo-arcade   { --lueur: rgba(185, 21, 34, 0.40); }
 .machine .photo-arcade img { max-height: 108px; border-radius: 10px; }
-.photo-nintendo { --lueur: rgba(230, 0, 18, 0.38); justify-content: flex-end; padding-right: 0; }
-.photo-nintendo img { object-position: right bottom; }
+.photo-nintendo { --lueur: rgba(230, 0, 18, 0.38); }
 .photo-sony     { --lueur: rgba(81, 183, 255, 0.35); }
 .photo-sega     { --lueur: rgba(23, 105, 255, 0.45); }
 /* consoles noires sur fond sombre : un fin liseré clair pour les détacher */

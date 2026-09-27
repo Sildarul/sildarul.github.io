@@ -135,7 +135,7 @@ PHOTOS DES TUILES DE L'ACCUEIL
 - Les tuiles Arcade / Nintendo / Sony / Sega / Spécial de index.html ont une
   vitrine en haut : <div class="photo photo-xxx"><img src="assets/tuile_xxx.webp"></div>.
 - Photos : assets/tuile_nintendo.webp (Super Famicom), assets/tuile_sony.webp
-  (PlayStation), assets/tuile_ps2.webp (PS2), assets/tuile_sega.webp (Mega Drive).
+  (PlayStation), assets/tuile_nes.webp (NES), assets/tuile_ps2.webp (PS2), assets/tuile_sega.webp (Mega Drive).
   Détourées (fond transparent), ~720 px de large, en webp.
-- La tuile Sony montre deux consoles (classe "photo-duo") : la seconde passe devant.
+- Les tuiles Nintendo et Sony montrent deux consoles (classe "photo-duo") : la seconde passe devant.
 - La lueur derrière chaque console se règle dans style.css (--lueur).
