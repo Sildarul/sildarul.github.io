@@ -8,7 +8,8 @@
 
      {
        titre:    "Le nom du jeu",
-       machine:  "arcade",          arcade | nes | snes | consoles | soutiens
+       machine:  "arcade",          arcade | nes | snes | n64 | gb | gamecube
+                                    ps1 | ps2 | soutiens
        etat:     "disponible",      disponible | encours | chantier | soutien
        genre:    "Traduction FR",   ce qu'on a fait dessus
        note:     "une phrase",      facultatif, s'affiche sous le titre
@@ -565,21 +566,21 @@ const PROJETS = [
     genre: "Traduction FR depuis le japonais", image: "assets/banner_nes_ultraman.jpg",
     lien: "https://ko-fi.com/s/3d0d482cd2" },
 
-  /* =========================== CONSOLES =========================== */
-  { titre: "Haunting Ground", machine: "consoles", etat: "disponible",
+  /* ============== AUTRES CONSOLES (gb, gamecube, ps1, ps2...) ============== */
+  { titre: "Haunting Ground", machine: "ps2", etat: "disponible",
     genre: "Traduction FR", image: "assets/banner_haunting_ground.jpg",
     note: "PlayStation 2",
     lien: "https://drive.google.com/file/d/1cT3uTXQ7OOCK5Dex2r3xnNNTU_415mon/view?usp=sharing" },
 
-  { titre: "Resident Evil Outbreak File #1 et #2", machine: "consoles", etat: "disponible",
+  { titre: "Resident Evil Outbreak File #1 et #2", machine: "ps2", etat: "disponible",
     genre: "Traduction FR", image: "assets/banner_outbreak.jpg",
     note: "PlayStation 2",
     lien: "https://drive.google.com/file/d/1ngqfOuKsUAwxgQLAz_AA1oaISSJZbby9/view?usp=drive_link" },
 
-  { titre: "Resident Evil Gaiden", machine: "consoles", etat: "encours",
+  { titre: "Resident Evil Gaiden", machine: "gb", etat: "encours",
     genre: "Traduction FR", image: "assets/banner_gaiden.png",
     note: "Game Boy Color", lien: "" },
 
-  { titre: "Le Seigneur des Anneaux — Le Tiers Âge", machine: "consoles", etat: "chantier",
+  { titre: "Le Seigneur des Anneaux — Le Tiers Âge", machine: "gamecube", etat: "chantier",
     genre: "Codes de triche", note: "GameCube", lien: "" }
 ];

@@ -3,12 +3,20 @@
 
 COMMENT C'EST FAIT
 ----------------------------------------------------------------------
-  index.html      l'accueil : les trois machines, puis tous les projets
+  index.html      l'accueil : Arcade, Nintendo, Sony, Sega, Special
   arcade.html     les bornes d'arcade
-  nes.html        NES et Famicom (projet Reset 60)
-  snes.html       Super Nintendo et Super Famicom (projet Reset 60)
-  consoles.html   PlayStation 2, GameCube, Game Boy Color
+  nintendo.html   la page Nintendo : une tuile par console
+    nes.html        NES et Famicom (projet Reset 60)
+    snes.html       Super Nintendo et Super Famicom (projet Reset 60)
+    n64.html        Nintendo 64
+    gb.html         Game Boy et Game Boy Color
+    gamecube.html   GameCube
+  sony.html       la page Sony : une tuile par console
+    ps1.html        PlayStation
+    ps2.html        PlayStation 2
+  sega.html       la page Sega (en attente des premiers projets)
   soutiens.html   les traductions reservees aux soutiens Ko-fi
+  consoles.html   l'ancienne page Consoles : renvoie vers l'accueil
 
   projets.js      LE CATALOGUE. C'est le seul fichier a modifier.
   site.js         le moteur : il remplit les pages a partir du catalogue
@@ -31,7 +39,8 @@ se remplissent toutes seules a partir de ce fichier.
 Pour ajouter un projet, recopie un bloc existant :
 
   { titre: "Le nom du jeu",
-    machine: "arcade",            arcade | nes | snes | consoles | soutiens
+    machine: "arcade",            arcade | nes | snes | n64 | gb | gamecube
+                                  | ps1 | ps2 | soutiens
     etat: "chantier",             disponible | encours | chantier | soutien
     genre: "Traduction FR",
     note: "une precision",        facultatif
@@ -109,3 +118,13 @@ ATTENTION : le site est PUBLIC, projets.js compris. Dans « lien », on
 met la page Ko-fi du jeu, JAMAIS le lien du fichier (sinon n'importe
 qui le trouve dans le code source). C'est Ko-fi qui donne le fichier a
 ceux qui soutiennent.
+
+
+AJOUTER UNE CONSOLE (par exemple la Mega Drive chez Sega)
+----------------------------------------------------------------------
+1. Copier une page console existante (ps1.html par exemple), changer
+   le titre, le texte, le fil d'Ariane et data-machine="megadrive".
+2. L'ajouter dans PAGES en haut de refaire_les_pages.py.
+3. Ajouter "megadrive" au bon constructeur dans MARQUES, en bas de
+   site.js, pour que les compteurs en tiennent compte.
+4. Ajouter sa tuile dans la page du constructeur (sega.html).

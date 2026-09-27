@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Super Nintendo et Super Famicom — Sild'arcade</title>
-<meta name="description" content="Traductions françaises pour Super Nintendo et Super Famicom, toujours en 60 Hz. Projet Reset 60.">
+<title>Nintendo — Sild'arcade</title>
+<meta name="description" content="Traductions françaises pour les consoles Nintendo : NES, Super Nintendo, Nintendo 64, Game Boy, GameCube.">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -27,23 +27,38 @@
     </div>
   </header>
 
-  <section class="chapeau avec-logo">
-    <img class="logo-chapeau" src="assets/logo_reset60.webp" width="440" height="440"
-         alt="Reset 60 — les jeux remis en 60 Hz">
-    <div class="chapeau-texte">
-    <div class="fil"><a href="nintendo.html">Nintendo</a> ›</div>
-    <h1>Super Nintendo / Super Famicom</h1>
-    <p>Même combat que sur NES : des jeux traduits en français et remis en 60 Hz, sur une base japonaise ou américaine. Les premiers arrivent.</p>
-    <div class="compte" id="compte"></div>
-    </div>
+  <section class="chapeau">
+    <h1>Nintendo</h1>
+    <p>Des cartouches NES aux disques GameCube : choisissez votre console.</p>
   </section>
 
-  <div class="filtres" id="filtres"></div>
-  <div class="grille" id="grille" data-machine="snes">
-      <!-- FICHES -->
-      <p class="vide">Les premiers jeux arrivent bientôt.</p>
-      <!-- FIN FICHES -->
-      </div>
+  <div class="machines">
+    <a class="machine" href="nes.html">
+      <h2>NES / Famicom</h2>
+      <p>Des cartouches japonaises et américaines, souvent traduites depuis le japonais, et toujours en 60 Hz.</p>
+      <div class="nombre" id="nombre-nes"></div>
+    </a>
+    <a class="machine" href="snes.html">
+      <h2>Super Nintendo</h2>
+      <p>Super Nintendo et Super Famicom : traduits en français et remis en 60 Hz.</p>
+      <div class="nombre" id="nombre-snes"></div>
+    </a>
+    <a class="machine" href="n64.html">
+      <h2>Nintendo 64</h2>
+      <p>Les premiers jeux arrivent.</p>
+      <div class="nombre" id="nombre-n64"></div>
+    </a>
+    <a class="machine" href="gb.html">
+      <h2>Game Boy / Color</h2>
+      <p>Game Boy et Game Boy Color.</p>
+      <div class="nombre" id="nombre-gb"></div>
+    </a>
+    <a class="machine" href="gamecube.html">
+      <h2>GameCube</h2>
+      <p>Traductions et codes.</p>
+      <div class="nombre" id="nombre-gamecube"></div>
+    </a>
+  </div>
 
   <footer class="pied">
     <p><strong>Sild'arcade production</strong> — Sildarul / La Boîte à Vider</p>

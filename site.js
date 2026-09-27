@@ -146,7 +146,8 @@ function remplir() {
         const soutiens = liste.filter(function (p) { return p.etat === "soutien"; }).length;
         compte.textContent = !liste.length ? "En préparation"
             : soutiens === liste.length ? liste.length + " traductions pour les soutiens"
-            : liste.length + " projets, dont " + dispo + " téléchargeables";
+            : liste.length + (liste.length > 1 ? " projets, dont " : " projet, dont ") + dispo
+              + (dispo > 1 ? " téléchargeables" : " téléchargeable");
     }
 }
 
@@ -188,20 +189,27 @@ function filtres(grille, liste) {
     });
 }
 
-/* les nombres des grandes tuiles de l'accueil */
+/* les nombres des tuiles : une machine, ou un constructeur entier */
+const MARQUES = {
+    nintendo: ["nes", "snes", "n64", "gb", "gamecube"],
+    sony:     ["ps1", "ps2"],
+    sega:     []
+};
+
 function compter() {
     if (typeof PROJETS === "undefined") return;
-    ["arcade", "nes", "snes", "consoles", "soutiens"].forEach(function (m) {
-        const cible = document.getElementById("nombre-" + m);
-        if (!cible) return;
-        const n = PROJETS.filter(function (p) { return p.machine === m; }).length;
-        const d = PROJETS.filter(function (p) { return p.machine === m && p.etat === "disponible"; }).length;
+    document.querySelectorAll("[id^='nombre-']").forEach(function (cible) {
+        const m = cible.id.slice(7);
+        const machines = MARQUES[m] || [m];
+        const liste = PROJETS.filter(function (p) { return machines.indexOf(p.machine) >= 0; });
+        const n = liste.length;
+        const d = liste.filter(function (p) { return p.etat === "disponible"; }).length;
         if (m === "soutiens") {
             cible.textContent = n + " traductions pour les soutiens";
-            return;
+        } else {
+            cible.textContent = n ? n + (n > 1 ? " projets" : " projet") + (d ? " — " + d + " à télécharger" : "")
+                                  : "Bientôt";
         }
-        cible.textContent = n ? n + " projets" + (d ? " — " + d + " à télécharger" : "")
-                              : "Bientôt";
     });
 }
 

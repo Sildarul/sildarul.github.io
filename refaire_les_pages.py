@@ -19,8 +19,11 @@ import io, os, re, html, datetime
 
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 PAGES = {"index.html": None, "arcade.html": "arcade",
-         "nes.html": "nes", "snes.html": "snes", "consoles.html": "consoles",
-         "soutiens.html": "soutiens"}
+         "nes.html": "nes", "snes.html": "snes", "n64.html": "n64",
+         "gb.html": "gb", "gamecube.html": "gamecube",
+         "ps1.html": "ps1", "ps2.html": "ps2", "soutiens.html": "soutiens"}
+# les pages sans fiches (constructeurs) : seulement dans le sitemap
+AUTRES = ["nintendo.html", "sony.html", "sega.html"]
 ADRESSE = "https://sildarul.github.io/"
 LIBELLE = {"disponible": "Disponible", "encours": "En cours", "chantier": "En chantier",
            "soutien": "Soutiens"}
@@ -96,7 +99,7 @@ def refaire():
     aujourdhui = datetime.date.today().isoformat()
     s = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for page in PAGES:
+    for page in list(PAGES) + AUTRES:
         adr = ADRESSE if page == "index.html" else ADRESSE + page
         s += ["  <url>", "    <loc>%s</loc>" % adr,
               "    <lastmod>%s</lastmod>" % aujourdhui,
