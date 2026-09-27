@@ -39,7 +39,7 @@ const PROJETS = [
     lien: "https://drive.google.com/file/d/1tJwgw3EDVunw41ECYNUqAeRVmEK_Dicd/view?usp=sharing" },
 
   { titre: "Jurassic Park", machine: "arcade", etat: "disponible",
-    genre: "Traduction FR", image: "assets/banner_jurassic_park.png",
+    genre: "Doublage FR", image: "assets/banner_jurassic_park.png",
     note: "Raw Thrills", lien: "https://drive.google.com/file/d/1-s74KtXZZRvkDG0T8feRdEjRs2CMXKl2/view?usp=sharing" },
 
   { titre: "Rambo", machine: "arcade", etat: "encours",
