@@ -140,7 +140,7 @@ PHOTOS DES TUILES DE L'ACCUEIL
 - Les tuiles Nintendo et Sony montrent deux consoles (classe "photo-duo") : la seconde passe devant.
 - La lueur derrière chaque console se règle dans style.css (--lueur).
 - Les pages Nintendo, Sony et Sega ont la même vitrine sur chaque console.
-  Consoles sans photo (N64, Game Boy, GameCube, Master System) : leur nom en
+  Consoles sans photo (GameCube, Master System) : leur nom en
   couleurs (classe "photo-texte"). Pour mettre une photo, remplacer le
   <div class="photo photo-texte ...">…</div> par
   <div class="photo" style="--lueur: …"><img src="assets/tuile_xxx.webp" alt=""></div>.
