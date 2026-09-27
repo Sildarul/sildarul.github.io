@@ -576,8 +576,5 @@ const PROJETS = [
 
   { titre: "Resident Evil Gaiden", machine: "gb", etat: "encours",
     genre: "Traduction FR", image: "assets/banner_gaiden.png",
-    note: "Game Boy Color", lien: "" },
-
-  { titre: "Le Seigneur des Anneaux — Le Tiers Âge", machine: "gamecube", etat: "chantier",
-    genre: "Codes de triche", note: "GameCube", lien: "" }
+    note: "Game Boy Color", lien: "" }
 ];
