@@ -371,21 +371,20 @@ a:hover { text-decoration: underline; }
 }
 .machine:hover .photo img { transform: translateY(-4px) scale(1.05); }
 .photo-arcade   { --lueur: rgba(185, 21, 34, 0.40); }
-.photo-arcade img { max-height: 108px; border-radius: 10px; }
+.machine .photo-arcade img { max-height: 108px; border-radius: 10px; }
 .photo-nintendo { --lueur: rgba(230, 0, 18, 0.38); justify-content: flex-end; padding-right: 0; }
 .photo-nintendo img { object-position: right bottom; }
 .photo-sony     { --lueur: rgba(81, 183, 255, 0.35); }
-.photo-sega     { --lueur: rgba(23, 105, 255, 0.40); align-items: center; }
-.photo-sega span {
-    font-size: 44px;
-    font-weight: 900;
-    font-style: italic;
-    letter-spacing: 2px;
-    color: #1769ff;
-    text-shadow: 0 0 18px rgba(23, 105, 255, 0.55);
-    transition: transform 0.25s ease;
+.photo-sega     { --lueur: rgba(23, 105, 255, 0.45); }
+/* consoles noires sur fond sombre : un fin liseré clair pour les détacher */
+.machine .photo-sega img,
+.machine .photo-duo img:nth-child(2) {
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.35)) drop-shadow(0 10px 12px rgba(0, 0, 0, 0.55));
 }
-.machine:hover .photo-sega span { transform: scale(1.06); }
+/* deux consoles dans la même vitrine : la seconde passe devant */
+.machine .photo-duo img { max-width: 53%; max-height: 92%; }
+.machine .photo-duo img:nth-child(1) { margin-right: -6%; margin-bottom: 12px; }
+.photo-duo img:nth-child(2) { position: relative; }
 .photo-special  { --lueur: rgba(242, 200, 79, 0.30); align-items: center; }
 .photo-special img {
     position: absolute;
