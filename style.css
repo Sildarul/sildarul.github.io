@@ -179,6 +179,29 @@ a:hover { text-decoration: underline; }
     font-size: 17px;
 }
 
+/* l'encart du pack Ko-fi, sous le compteur de la page NES */
+.chapeau .pack {
+    display: block;
+    max-width: 560px;
+    margin-top: 14px;
+    padding: 10px 14px;
+    border: 1px solid rgba(242, 200, 79, 0.45);
+    border-radius: 12px;
+    background-color: rgba(242, 200, 79, 0.07);
+    color: #9a92a4;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.chapeau .pack strong { color: #f2c84f; }
+.chapeau .pack:hover {
+    border-color: #f2c84f;
+    background-color: rgba(242, 200, 79, 0.14);
+    text-decoration: none;
+}
+@media (max-width: 660px) {
+    .chapeau .pack { margin-left: auto; margin-right: auto; }
+}
+
 .chapeau .compte {
     display: inline-block;
     margin-top: 14px;
