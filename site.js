@@ -20,7 +20,8 @@ const ATTENTE = 5;                       // les secondes du sas
 const LIBELLE = {
     disponible: "Disponible",
     encours:    "En cours",
-    chantier:   "En chantier"
+    chantier:   "En chantier",
+    soutien:    "Soutiens"
 };
 
 function fiche(p) {
@@ -74,6 +75,18 @@ function fiche(p) {
 
     const bouton = document.createElement("button");
     bouton.className = "bouton";
+    if (p.etat === "soutien" && p.lien) {
+        /* pas de sas : on part directement sur Ko-fi */
+        const a = document.createElement("a");
+        a.className = "bouton soutien";
+        a.href = p.lien;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = "Débloquer sur Ko-fi";
+        corps.appendChild(a);
+        carte.appendChild(corps);
+        return carte;
+    }
     if (p.etat === "disponible" && p.lien) {
         bouton.className = "bouton actif";
         bouton.textContent = "Télécharger";
@@ -118,7 +131,7 @@ function remplir() {
     if (!grille || typeof PROJETS === "undefined") return;
 
     const machine = grille.dataset.machine || "";
-    const ordre = { disponible: 0, encours: 1, chantier: 2 };
+    const ordre = { disponible: 0, soutien: 0, encours: 1, chantier: 2 };
     const liste = PROJETS
         .filter(function (p) { return !machine || p.machine === machine; })
         .slice()
@@ -130,9 +143,10 @@ function remplir() {
     const compte = document.getElementById("compte");
     if (compte) {
         const dispo = liste.filter(function (p) { return p.etat === "disponible"; }).length;
-        compte.textContent = liste.length
-            ? liste.length + " projets, dont " + dispo + " téléchargeables"
-            : "En préparation";
+        const soutiens = liste.filter(function (p) { return p.etat === "soutien"; }).length;
+        compte.textContent = !liste.length ? "En préparation"
+            : soutiens === liste.length ? liste.length + " traductions pour les soutiens"
+            : liste.length + " projets, dont " + dispo + " téléchargeables";
     }
 }
 
@@ -151,7 +165,9 @@ function dessiner(grille, liste) {
 function filtres(grille, liste) {
     const barre = document.getElementById("filtres");
     if (!barre) return;
-    if (!liste.length) { barre.innerHTML = ""; return; }
+    const etats = {};
+    liste.forEach(function (p) { etats[p.etat] = true; });
+    if (Object.keys(etats).length < 2) { barre.innerHTML = ""; return; }
     const choix = [
         ["", "Tout"],
         ["disponible", "Disponibles"],

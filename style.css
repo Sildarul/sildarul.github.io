@@ -103,6 +103,14 @@ a:hover { text-decoration: underline; }
     background-color: rgba(185, 21, 34, 0.18);
     color: #f7f1e7;
 }
+/* le lien des soutiens garde l'or de Ko-fi */
+.menu a.menu-soutiens { color: #f2c84f; }
+.menu a.menu-soutiens:hover,
+.menu a.menu-soutiens.ici {
+    border-color: #f2c84f;
+    background-color: rgba(242, 200, 79, 0.14);
+    color: #f2c84f;
+}
 
 /* ---------------------------------------------------------------- */
 /* LE TITRE DE PAGE                                                 */
@@ -360,6 +368,7 @@ a:hover { text-decoration: underline; }
 .etat.disponible { background-color: #44d760; color: #08240f; }
 .etat.encours    { background-color: #f2c84f; color: #2a2003; }
 .etat.chantier   { background-color: #3a3444; color: #cfc7d8; }
+.etat.soutien    { background-color: #f2c84f; color: #2a2003; }
 
 .corps {
     display: flex;
@@ -415,6 +424,14 @@ a:hover { text-decoration: underline; }
     cursor: pointer;
 }
 .bouton.actif:hover { background-color: rgba(68, 215, 96, 0.24); color: #ffffff; text-decoration: none; }
+
+.bouton.soutien {
+    border-color: #f2c84f;
+    background-color: rgba(242, 200, 79, 0.12);
+    color: #f2c84f;
+    cursor: pointer;
+}
+.bouton.soutien:hover { background-color: rgba(242, 200, 79, 0.24); color: #ffffff; text-decoration: none; }
 
 .bouton.attente {
     border-color: #f2c84f;

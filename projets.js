@@ -8,8 +8,8 @@
 
      {
        titre:    "Le nom du jeu",
-       machine:  "arcade",          arcade | nes | snes | consoles
-       etat:     "disponible",      disponible | encours | chantier
+       machine:  "arcade",          arcade | nes | snes | consoles | soutiens
+       etat:     "disponible",      disponible | encours | chantier | soutien
        genre:    "Traduction FR",   ce qu'on a fait dessus
        note:     "une phrase",      facultatif, s'affiche sous le titre
        image:    "assets/xxx.jpg",  facultatif ; sans image, une tuile
@@ -22,6 +22,8 @@
      disponible  le patch est telechargeable, le bouton s'allume
      encours     le travail avance, le bouton dit « en cours »
      chantier    c'est ouvert mais loin d'etre fini
+     soutien     reserve aux soutiens : le bouton mene a Ko-fi (lien = la
+                 page Ko-fi du jeu), jamais au fichier lui-meme
 
    Pour SORTIR un projet : passe son etat a "disponible" et colle son
    lien. Rien d'autre a toucher, nulle part.
@@ -138,9 +140,6 @@ const PROJETS = [
   { titre: "Les Chevaliers du Zodiaque — La Légende d'Or", machine: "nes", etat: "encours",
     genre: "Traduction FR", image: "assets/banner_nes_zodiaque.jpg",
     lien: "" },
-  { titre: "L'Empereur", machine: "nes", etat: "encours",
-    genre: "Traduction FR", note: "Koei", image: "assets/banner_nes_empereur.jpg",
-    lien: "" },
   { titre: "Dragon Ball - Le Secret du Dragon", machine: "nes", etat: "encours",
     genre: "Retraduction depuis le japonais", image: "assets/banner_nes_dragonball.jpg",
     lien: "" },
@@ -165,9 +164,6 @@ const PROJETS = [
   { titre: "Edgar de la Cambriole — L'Héritage de Pandore", machine: "nes", etat: "chantier",
     genre: "Traduction FR", image: "assets/banner_nes_edgar.jpg",
     lien: "" },
-  { titre: "Ultraman Club 3", machine: "nes", etat: "chantier",
-    genre: "Traduction FR depuis le japonais", image: "assets/banner_nes_ultraman.jpg",
-    lien: "" },
   { titre: "Shadowgate", machine: "nes", etat: "chantier",
     genre: "Conversion 50 Hz vers 60 Hz", image: "assets/banner_nes_shadowgate.jpg",
     lien: "" },
@@ -175,6 +171,25 @@ const PROJETS = [
   /* ======================= SUPER NINTENDO ========================= */
   /* (les projets Super Nintendo / Super Famicom se rangent ici,
       avec machine: "snes") */
+
+  /* ====================== POUR LES SOUTIENS ======================= */
+  /* Traductions reservees a ceux qui soutiennent sur Ko-fi. Le lien est
+     celui de Ko-fi, JAMAIS celui du fichier : ce catalogue est public. */
+  { titre: "Akira", machine: "soutiens", etat: "soutien",
+    genre: "Traduction FR depuis le japonais",
+    lien: "https://ko-fi.com/sildarul" },
+  { titre: "Jetman", machine: "soutiens", etat: "soutien",
+    genre: "Traduction FR depuis le japonais",
+    lien: "https://ko-fi.com/sildarul" },
+  { titre: "L'Empereur", machine: "soutiens", etat: "soutien",
+    genre: "Traduction FR", note: "Koei", image: "assets/banner_nes_empereur.jpg",
+    lien: "https://ko-fi.com/sildarul" },
+  { titre: "Sweet Home", machine: "soutiens", etat: "soutien",
+    genre: "Traduction FR depuis le japonais",
+    lien: "https://ko-fi.com/sildarul" },
+  { titre: "Ultraman Club 3", machine: "soutiens", etat: "soutien",
+    genre: "Traduction FR depuis le japonais", image: "assets/banner_nes_ultraman.jpg",
+    lien: "https://ko-fi.com/sildarul" },
 
   /* =========================== CONSOLES =========================== */
   { titre: "Haunting Ground", machine: "consoles", etat: "disponible",

@@ -8,6 +8,7 @@ COMMENT C'EST FAIT
   nes.html        NES et Famicom (projet Reset 60)
   snes.html       Super Nintendo et Super Famicom (projet Reset 60)
   consoles.html   PlayStation 2, GameCube, Game Boy Color
+  soutiens.html   les traductions reservees aux soutiens Ko-fi
 
   projets.js      LE CATALOGUE. C'est le seul fichier a modifier.
   site.js         le moteur : il remplit les pages a partir du catalogue
@@ -24,14 +25,14 @@ COMMENT C'EST FAIT
 
 AJOUTER OU SORTIR UN PROJET
 ----------------------------------------------------------------------
-Tout se passe dans projets.js, et NULLE PART AILLEURS. Les cinq pages
+Tout se passe dans projets.js, et NULLE PART AILLEURS. Les pages
 se remplissent toutes seules a partir de ce fichier.
 
 Pour ajouter un projet, recopie un bloc existant :
 
   { titre: "Le nom du jeu",
-    machine: "arcade",            arcade | nes | snes | consoles
-    etat: "chantier",             disponible | encours | chantier
+    machine: "arcade",            arcade | nes | snes | consoles | soutiens
+    etat: "chantier",             disponible | encours | chantier | soutien
     genre: "Traduction FR",
     note: "une precision",        facultatif
     image: "assets/xxx.jpg",      facultatif
@@ -53,7 +54,7 @@ precaution, les titres des jeux n'existeraient nulle part dans le HTML
 et Google pourrait passer a cote.
 
 refaire_les_pages.py recopie donc toutes les fiches EN DUR dans les
-cinq pages, entre <!-- FICHES --> et <!-- FIN FICHES -->. Le
+pages, entre <!-- FICHES --> et <!-- FIN FICHES -->. Le
 JavaScript les redessine ensuite par-dessus a l'ouverture : les deux
 disent la meme chose. Et la page reste entierement lisible meme avec le
 JavaScript coupe.
@@ -97,3 +98,14 @@ patchs qui l'etaient deja. Relis la liste et corrige :
   - les etats (ce qui est en fait deja sorti)
   - les titres et les machines
   - ce qui manque, ce qui n'a rien a y faire
+
+
+LES TRADUCTIONS POUR LES SOUTIENS
+----------------------------------------------------------------------
+Une fiche avec machine: "soutiens" et etat: "soutien" va sur la page
+soutiens.html, et son bouton dit « Debloquer sur Ko-fi ».
+
+ATTENTION : le site est PUBLIC, projets.js compris. Dans « lien », on
+met la page Ko-fi du jeu, JAMAIS le lien du fichier (sinon n'importe
+qui le trouve dans le code source). C'est Ko-fi qui donne le fichier a
+ceux qui soutiennent.

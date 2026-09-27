@@ -19,12 +19,14 @@ import io, os, re, html, datetime
 
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 PAGES = {"index.html": None, "arcade.html": "arcade",
-         "nes.html": "nes", "snes.html": "snes", "consoles.html": "consoles"}
+         "nes.html": "nes", "snes.html": "snes", "consoles.html": "consoles",
+         "soutiens.html": "soutiens"}
 ADRESSE = "https://sildarul.github.io/"
-LIBELLE = {"disponible": "Disponible", "encours": "En cours", "chantier": "En chantier"}
+LIBELLE = {"disponible": "Disponible", "encours": "En cours", "chantier": "En chantier",
+           "soutien": "Soutiens"}
 BOUTON = {"disponible": "Télécharger", "encours": "En cours de traduction",
-          "chantier": "En chantier"}
-ORDRE = {"disponible": 0, "encours": 1, "chantier": 2}
+          "chantier": "En chantier", "soutien": "Débloquer sur Ko-fi"}
+ORDRE = {"disponible": 0, "soutien": 0, "encours": 1, "chantier": 2}
 
 
 def lire_catalogue():
@@ -59,7 +61,10 @@ def fiche(p):
         L.append('          <p class="genre">%s</p>' % html.escape(p["genre"]))
     if p.get("note"):
         L.append('          <p class="note">%s</p>' % html.escape(p["note"]))
-    if etat == "disponible" and p.get("lien"):
+    if etat == "soutien" and p.get("lien"):
+        L.append('          <a class="bouton soutien" href="%s" target="_blank" rel="noopener">%s</a>'
+                 % (html.escape(p["lien"]), BOUTON[etat]))
+    elif etat == "disponible" and p.get("lien"):
         L.append('          <a class="bouton actif" href="%s" rel="noopener">%s</a>'
                  % (html.escape(p["lien"]), BOUTON[etat]))
     else:
