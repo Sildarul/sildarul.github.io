@@ -9,7 +9,7 @@
      {
        titre:    "Le nom du jeu",
        machine:  "arcade",          arcade | nes | snes | n64 | gb | gamecube
-                                    ps1 | ps2 | soutiens
+                                    ps1 | ps2 | mastersystem | megadrive | soutiens
        etat:     "disponible",      disponible | encours | chantier | soutien
        genre:    "Traduction FR",   ce qu'on a fait dessus
        note:     "une phrase",      facultatif, s'affiche sous le titre

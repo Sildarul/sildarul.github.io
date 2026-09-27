@@ -193,7 +193,7 @@ function filtres(grille, liste) {
 const MARQUES = {
     nintendo: ["nes", "snes", "n64", "gb", "gamecube"],
     sony:     ["ps1", "ps2"],
-    sega:     []
+    sega:     ["mastersystem", "megadrive"]
 };
 
 function compter() {

@@ -14,7 +14,9 @@ COMMENT C'EST FAIT
   sony.html       la page Sony : une tuile par console
     ps1.html        PlayStation
     ps2.html        PlayStation 2
-  sega.html       la page Sega (en attente des premiers projets)
+  sega.html       la page Sega : une tuile par console
+    mastersystem.html  Master System
+    megadrive.html     Mega Drive
   soutiens.html   les traductions reservees aux soutiens Ko-fi
   consoles.html   l'ancienne page Consoles : renvoie vers l'accueil
 
@@ -40,7 +42,7 @@ Pour ajouter un projet, recopie un bloc existant :
 
   { titre: "Le nom du jeu",
     machine: "arcade",            arcade | nes | snes | n64 | gb | gamecube
-                                  | ps1 | ps2 | soutiens
+                                  | ps1 | ps2 | mastersystem | megadrive | soutiens
     etat: "chantier",             disponible | encours | chantier | soutien
     genre: "Traduction FR",
     note: "une precision",        facultatif
