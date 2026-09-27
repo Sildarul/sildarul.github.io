@@ -272,16 +272,22 @@ a:hover { text-decoration: underline; }
 .visuel {
     position: relative;
     aspect-ratio: 760 / 190;   /* le format exact des bannieres : elles
-                                  s'affichent entieres, jamais rognees */
-    min-height: 96px;
+                                  s'affichent entieres, jamais rognees.
+                                  Surtout PAS de min-height ici : Firefox
+                                  en deduit une largeur minimale (96 x 4 =
+                                  384 px), plus large que la carte, et le
+                                  bord droit de la banniere se fait couper */
     background-position: center center;
     background-size: cover;
     background-color: #17141d;
     border-bottom: 1px solid #2a2530;
+    overflow: hidden;          /* verrouille le 4 pour 1 : sans ca, un
+                                  titre de secours trop long etire la
+                                  boite vers le bas */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 14px;
+    padding: 8px 14px 30px 14px;   /* le bas est reserve a la pastille */
     text-align: center;
 }
 
@@ -295,12 +301,18 @@ a:hover { text-decoration: underline; }
 }
 
 .visuel .sigle {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(247, 241, 231, 0.34);
     line-height: 1.15;
+    /* deux lignes au plus : au-dela, points de suspension */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
 }
 
 .etat {
