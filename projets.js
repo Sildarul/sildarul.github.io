@@ -38,9 +38,9 @@ const PROJETS = [
     genre: "Traduction FR", image: "assets/banner_silent_hill_arcade.png",
     lien: "https://drive.google.com/file/d/1tJwgw3EDVunw41ECYNUqAeRVmEK_Dicd/view?usp=sharing" },
 
-  { titre: "Jurassic Park", machine: "arcade", etat: "encours",
+  { titre: "Jurassic Park", machine: "arcade", etat: "disponible",
     genre: "Traduction FR", image: "assets/banner_jurassic_park.png",
-    note: "Raw Thrills — conteneurs .g5 décodés", lien: "" },
+    note: "Raw Thrills — conteneurs .g5 décodés", lien: "https://drive.google.com/file/d/1-s74KtXZZRvkDG0T8feRdEjRs2CMXKl2/view?usp=sharing" },
 
   { titre: "Rambo", machine: "arcade", etat: "encours",
     genre: "Traduction FR et doublage", image: "assets/banner_rambo.png",
