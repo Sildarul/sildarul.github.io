@@ -9,13 +9,15 @@
       Sans data-machine, on pose tout.
 
    2. LE SAS DE LA CHAINE. Un clic sur un projet disponible ouvre la
-      chaine YouTube dans un onglet, compte cinq secondes, puis ouvre
-      le telechargement. C'est le fonctionnement d'origine du site,
-      garde tel quel.
+      chaine YouTube dans un onglet, compte trois secondes, puis le
+      bouton devient un vrai lien "Telecharger le patch" sur lequel on
+      clique. (Ouvrir le fichier tout seul a la fin du compte a rebours
+      ne marche pas : les navigateurs bloquent un onglet qui ne vient
+      pas directement d'un clic.)
 ------------------------------------------------------------------ */
 
 const CHAINE = "https://www.youtube.com/@laboiteavider";
-const ATTENTE = 5;                       // les secondes du sas
+const ATTENTE = 3;                       // les secondes du sas
 
 const LIBELLE = {
     disponible: "Disponible",
@@ -110,19 +112,23 @@ function sas(bouton, lien) {
 
     let reste = ATTENTE;
     bouton.className = "bouton attente";
-    bouton.textContent = "Merci ! Ouverture dans " + reste + " s";
+    bouton.textContent = "Merci ! Lien du patch dans " + reste + " s";
 
     const horloge = setInterval(function () {
         reste = reste - 1;
         if (reste > 0) {
-            bouton.textContent = "Merci ! Ouverture dans " + reste + " s";
+            bouton.textContent = "Merci ! Lien du patch dans " + reste + " s";
             return;
         }
         clearInterval(horloge);
-        window.open(lien, "_blank", "noopener");
-        bouton.className = "bouton actif";
-        bouton.textContent = "Télécharger";
-        bouton.dataset.enCours = "non";
+        /* le lien s'active : c'est le visiteur qui clique, donc rien n'est bloque */
+        const a = document.createElement("a");
+        a.className = "bouton actif pret";
+        a.href = lien;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = "Télécharger le patch";
+        bouton.replaceWith(a);
     }, 1000);
 }
 

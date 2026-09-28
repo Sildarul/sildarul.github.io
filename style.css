@@ -635,6 +635,20 @@ a:hover { text-decoration: underline; }
     color: #f2c84f;
     cursor: default;
 }
+/* apres le compte a rebours : le lien du patch, bien visible */
+.bouton.pret {
+    display: block;
+    box-sizing: border-box;
+    background-color: #44d760;
+    color: #0d0b10;
+    animation: pret-pulse 1.2s ease-out 2;
+}
+.bouton.pret:hover { background-color: #6fe886; color: #0d0b10; }
+@keyframes pret-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(68, 215, 96, 0.7); }
+    100% { box-shadow: 0 0 0 12px rgba(68, 215, 96, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .bouton.pret { animation: none; } }
 
 /* ---------------------------------------------------------------- */
 /* LE PIED DE PAGE                                                  */

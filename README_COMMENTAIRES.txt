@@ -79,9 +79,13 @@ touches a projets.js, sinon les moteurs verront l'ancienne liste.
 
 LE SAS DE LA CHAINE
 ----------------------------------------------------------------------
-Un clic sur un projet disponible ouvre la chaine YouTube, compte cinq
-secondes, puis ouvre le telechargement. C'est le fonctionnement
-d'origine, garde tel quel. Les deux reglages sont en haut de site.js :
+Un clic sur un projet disponible ouvre la chaine YouTube, compte trois
+secondes, puis le bouton devient un lien vert "Telecharger le patch" :
+le visiteur clique dessus et le fichier s'ouvre. (Le site n'ouvre plus
+le fichier tout seul : les navigateurs bloquent un onglet qui ne vient
+pas directement d'un clic, c'est ce qui renvoyait vers YouTube sans
+donner le patch - corrige le 28 septembre 2026.)
+Les deux reglages sont en haut de site.js :
 
   CHAINE    l'adresse de la chaine
   ATTENTE   le nombre de secondes
