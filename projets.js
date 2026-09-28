@@ -297,7 +297,7 @@ const PROJETS = [
     genre: "Traduction FR", note: "Taito", image: "assets/banner_nes_the_flintstones_the_surprise_at_dinosaur.jpg",
     lien: "https://drive.google.com/file/d/1vR-jVl5wuj6OOgcx8WDTQ69aY8EXFrWe/view?usp=sharing" },
   { titre: "Galaga", machine: "nes", etat: "disponible",
-    genre: "Traduction FR", note: "Bandai 1988", image: "assets/banner_nes_galaga.jpg",
+    genre: "Traduction FR", note: "Bandai 1988 (portage Namco de 1985)", image: "assets/banner_nes_galaga.jpg",
     lien: "https://drive.google.com/file/d/1eCkn8HGCOXNdB0iGYxahQvfKaPVLkKCg/view?usp=sharing" },
   { titre: "Galaxy 5000", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Activision 1990", image: "assets/banner_nes_galaxy_5000.jpg",
