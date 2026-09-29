@@ -233,7 +233,7 @@ const PROJETS = [
   { titre: "Bram Stoker's Dracula", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Sony Imagesoft 1993", image: "assets/banner_nes_bram_stoker_s_dracula.jpg",
     lien: "https://drive.google.com/file/d/1t8QZiret0qrcWx4HuRC-GNbM5OVLSkJ5/view?usp=sharing" },
-  { titre: "California Games", machine: "nes", etat: "encours",
+  { titre: "California Games", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Milton Bradley 1989", image: "assets/banner_nes_california_games.jpg",
     lien: "https://drive.google.com/file/d/1gj09XxAaJe5tP5sbnCIdP0gC0go9h6aQ/view?usp=sharing" },
   { titre: "Championship Rally", machine: "nes", etat: "disponible",
