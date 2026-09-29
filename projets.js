@@ -365,7 +365,7 @@ const PROJETS = [
   { titre: "Maniac Mansion", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Jaleco 1990", image: "assets/banner_nes_maniac_mansion.jpg",
     lien: "https://drive.google.com/file/d/1UoY9b4rXFf_9w304PLDzks-lA0W6hid5/view?usp=sharing" },
-  { titre: "Marble Madness", machine: "nes", etat: "encours",
+  { titre: "Marble Madness", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Milton Bradley 1989", image: "assets/banner_nes_marble_madness.jpg",
     lien: "https://drive.google.com/file/d/1TcrlWBjk7bBpTAzZ81cYUzjXTsZT_7ph/view?usp=sharing" },
   { titre: "Mario & Yoshi", machine: "nes", etat: "disponible",
