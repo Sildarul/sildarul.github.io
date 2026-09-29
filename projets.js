@@ -275,7 +275,7 @@ const PROJETS = [
   { titre: "Dropzone", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Mindscape 1992", image: "assets/banner_nes_dropzone.jpg",
     lien: "https://drive.google.com/file/d/1Luhwz1UJmKmpvt8Io0tOpXAZ9TTPM97a/view?usp=sharing" },
-  { titre: "Lee Trevino's Fighting Golf", machine: "nes", etat: "encours",
+  { titre: "Lee Trevino's Fighting Golf", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "SNK 1988", image: "assets/banner_nes_lee_trevino_s_fighting_golf.jpg",
     lien: "https://drive.google.com/file/d/17K4WXuvsc-HbE67oJROt4PNpI4ThuHHT/view?usp=sharing" },
   { titre: "Eliminator Boat Duel", machine: "nes", etat: "disponible",
