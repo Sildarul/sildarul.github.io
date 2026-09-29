@@ -428,7 +428,7 @@ const PROJETS = [
   { titre: "Rackets & Rivals", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Konami 1993", image: "assets/banner_nes_rackets_rivals.jpg",
     lien: "https://drive.google.com/file/d/1XxIiArafGvynfcZ4811z52gzQ0H5n5BA/view?usp=sharing" },
-  { titre: "Rampart", machine: "nes", etat: "encours",
+  { titre: "Rampart", machine: "nes", etat: "disponible",
     genre: "Traduction FR et conversion 60 Hz", note: "Jaleco 1992", image: "assets/banner_nes_rampart.jpg",
     lien: "https://drive.google.com/file/d/1vYOOAXIdrsBcEaEVkH3YceR3qC-eVqGm/view?usp=sharing" },
   { titre: "Road Runner", machine: "nes", etat: "disponible",
