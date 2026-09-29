@@ -197,7 +197,7 @@ const PROJETS = [
   { titre: "Astérix", machine: "nes", etat: "disponible",
     genre: "VF corrigée", note: "Infogrames 1993", image: "assets/banner_nes_asterix.jpg",
     lien: "https://drive.google.com/file/d/1C5jN-6Xwbsmtr-ud8IReofQdxXkEccZz/view?usp=sharing" },
-  { titre: "Banana Prince", machine: "nes", etat: "encours",
+  { titre: "Banana Prince", machine: "nes", etat: "disponible",
     genre: "Traduction FR depuis le japonais", note: "Takara 1991", image: "assets/banner_nes_banana_prince.jpg",
     lien: "https://drive.google.com/file/d/1GXj9CnoAt7N0sLL8YVA4ySuUfGwbc9wR/view?usp=sharing" },
   { titre: "Barker Bill's Trick Shooting", machine: "nes", etat: "disponible",
