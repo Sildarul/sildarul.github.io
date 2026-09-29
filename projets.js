@@ -509,7 +509,7 @@ const PROJETS = [
   { titre: "Tiny Toon Adventures: Cartoon Workshop", machine: "nes", etat: "disponible",
     genre: "Traduction FR", image: "assets/banner_nes_tiny_toon_adventures_cartoon_workshop.jpg",
     lien: "https://drive.google.com/file/d/1_CSW4a-Q9mLszQujWbLxPynM-kAM6efi/view?usp=sharing" },
-  { titre: "To The Earth", machine: "nes", etat: "encours",
+  { titre: "To The Earth", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Nintendo 1989", image: "assets/banner_nes_to_the_earth.jpg",
     lien: "https://drive.google.com/file/d/1k8A0wPTcY19JWrdsOXL7-Hv3yHeTtVUL/view?usp=sharing" },
   { titre: "Tom & Jerry", machine: "nes", etat: "disponible",
