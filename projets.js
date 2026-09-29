@@ -199,7 +199,7 @@ const PROJETS = [
     lien: "https://drive.google.com/file/d/1C5jN-6Xwbsmtr-ud8IReofQdxXkEccZz/view?usp=sharing" },
   { titre: "Banana Prince", machine: "nes", etat: "disponible",
     genre: "Traduction FR depuis le japonais", note: "Takara 1991", image: "assets/banner_nes_banana_prince.jpg",
-    lien: "https://drive.google.com/file/d/1GXj9CnoAt7N0sLL8YVA4ySuUfGwbc9wR/view?usp=sharing" },
+    lien: "https://drive.google.com/file/d/1rAGZD1whlTw1KqmpD4W_SqlyK4_Z8Q9w/view?usp=sharing" },
   { titre: "Barker Bill's Trick Shooting", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Nintendo 1989", image: "assets/banner_nes_barker_bill_s_trick_shooting.jpg",
     lien: "https://drive.google.com/file/d/19klWMPGnmtNNKDA2RK1Ksj93zE9NqsrE/view?usp=sharing" },
