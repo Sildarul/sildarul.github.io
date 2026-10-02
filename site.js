@@ -145,6 +145,7 @@ function remplir() {
 
     dessiner(grille, liste);
     filtres(grille, liste);
+    recherche(grille, liste);
 
     const compte = document.getElementById("compte");
     if (compte) {
@@ -169,6 +170,54 @@ function dessiner(grille, liste) {
     }
 }
 
+/* ce que le visiteur a choisi : un etat (les boutons) et un mot (la
+   recherche). Les deux se cumulent. */
+const tri = { etat: "", mot: "" };
+
+/* "Énigme", "enigme" et "ENIGME" doivent se trouver pareil */
+function aplatir(s) {
+    return (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function appliquer(grille, liste) {
+    const mot = aplatir(tri.mot);
+    const garde = liste.filter(function (p) {
+        if (tri.etat && p.etat !== tri.etat) return false;
+        return !mot || aplatir(p.titre).indexOf(mot) >= 0;
+    });
+    if (!garde.length && liste.length) {
+        grille.innerHTML = "";
+        const vide = document.createElement("p");
+        vide.className = "vide";
+        vide.textContent = "Aucun jeu ne correspond à « " + tri.mot.trim() + " ».";
+        grille.appendChild(vide);
+        return;
+    }
+    dessiner(grille, garde);
+}
+
+/* LA RECHERCHE : une case au-dessus de la grille, qui ne garde que les
+   jeux dont le titre contient ce qu'on tape. Inutile sur une page de
+   quelques jeux : on ne la pose qu'a partir de 8. */
+function recherche(grille, liste) {
+    if (liste.length < 8) return;
+    const boite = document.createElement("div");
+    boite.className = "recherche";
+    const champ = document.createElement("input");
+    champ.type = "search";
+    champ.placeholder = "Chercher un jeu…";
+    champ.setAttribute("aria-label", "Chercher un jeu par son titre");
+    champ.autocomplete = "off";
+    champ.addEventListener("input", function () {
+        tri.mot = champ.value;
+        appliquer(grille, liste);
+    });
+    boite.appendChild(champ);
+    const barre = document.getElementById("filtres");
+    grille.parentNode.insertBefore(boite, barre || grille);
+}
+
 function filtres(grille, liste) {
     const barre = document.getElementById("filtres");
     if (!barre) return;
@@ -189,7 +238,8 @@ function filtres(grille, liste) {
         b.addEventListener("click", function () {
             Array.prototype.forEach.call(barre.children, function (x) { x.className = ""; });
             b.className = "actif";
-            dessiner(grille, c[0] ? liste.filter(function (p) { return p.etat === c[0]; }) : liste);
+            tri.etat = c[0];
+            appliquer(grille, liste);
         });
         barre.appendChild(b);
     });
