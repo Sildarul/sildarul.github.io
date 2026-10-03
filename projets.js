@@ -549,6 +549,12 @@ const PROJETS = [
   /* ======================= SUPER NINTENDO ========================= */
   /* (les projets Super Nintendo / Super Famicom se rangent ici,
       avec machine: "snes") */
+  { titre: "Donkey Kong Country", machine: "snes", etat: "disponible",
+    genre: "VF d'origine passée en 60 Hz", note: "Rare 1994", image: "assets/banner_snes_donkey_kong_country.jpg",
+    lien: "LIEN_DKC" },
+  { titre: "Super Mario World 2: Yoshi's Island", machine: "snes", etat: "disponible",
+    genre: "VF d'origine passée en 60 Hz", note: "Nintendo 1995", image: "assets/banner_snes_yoshi_s_island.jpg",
+    lien: "LIEN_YOSHI" },
 
   /* ====================== POUR LES SOUTIENS ======================= */
   /* Traductions reservees a ceux qui soutiennent sur Ko-fi. Le lien est
@@ -564,6 +570,9 @@ const PROJETS = [
     lien: "https://ko-fi.com/s/3d0d482cd2" },
   { titre: "Sweet Home", machine: "soutiens", etat: "soutien",
     genre: "Traduction FR depuis le japonais", image: "assets/banner_soutiens_sweet_home.jpg",
+    lien: "https://ko-fi.com/s/3d0d482cd2" },
+  { titre: "Ushio to Tora", machine: "soutiens", etat: "soutien",
+    genre: "Traduction FR depuis le japonais", note: "Super Famicom", image: "assets/banner_soutiens_ushio_to_tora.jpg",
     lien: "https://ko-fi.com/s/3d0d482cd2" },
   { titre: "Ultraman Club 3", machine: "soutiens", etat: "soutien",
     genre: "Traduction FR depuis le japonais", image: "assets/banner_nes_ultraman.jpg",
