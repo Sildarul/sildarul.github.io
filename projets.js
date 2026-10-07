@@ -408,7 +408,7 @@ const PROJETS = [
     genre: "Traduction FR", note: "Mindscape 1992", image: "assets/banner_nes_paperboy_2.jpg",
     lien: "https://drive.google.com/file/d/1QDA5C-h90YXonpa38IUIwT5LBAUmeS7K/view?usp=sharing" },
   { titre: "Parasol Stars: Rainbow Islands II", machine: "nes_autres", etat: "disponible",
-    genre: "VF Terminus Traduction (FlashPV)", note: "Terminus Traduction avait traduit le jeu. Notre ajout : la région européenne déclarée, pour que les émulateurs le lancent à sa vraie vitesse (exclusivité PAL, 50 Hz). Leur patch s'applique en premier.", image: "assets/banner_nes_parasol_stars_rainbow_islands_ii.jpg",
+    genre: "VF Terminus Traduction (FlashPV)", note: "Terminus Traduction avait traduit le jeu. Notre ajout : la région européenne déclarée, pour que les émulateurs le lancent à sa vraie vitesse (exclusivité PAL, 50 Hz) ; la musique remise à la bonne tonalité et au bon tempo ; et le moteur audio réparé : amputé lors de l'assemblage du jeu, il faussait depuis 30 ans les dernières notes des musiques exclusives. Toute l'histoire est sur la chaîne YouTube. Leur patch s'applique en premier.", image: "assets/banner_nes_parasol_stars_rainbow_islands_ii.jpg",
     lien: "https://drive.google.com/file/d/1QMpm8Uv0MOgivRACh2k7L9rhKx6jz8Ki/view?usp=sharing" },
   { titre: "Pinbot", machine: "nes", etat: "disponible",
     genre: "Traduction FR", note: "Nintendo 1990", image: "assets/banner_nes_pinbot.jpg",
