@@ -198,9 +198,6 @@ a:hover { text-decoration: underline; }
     background-color: rgba(242, 200, 79, 0.14);
     text-decoration: none;
 }
-.chapeau .pack.autres { border-color: rgba(81, 183, 255, 0.45); background-color: rgba(81, 183, 255, 0.07); }
-.chapeau .pack.autres strong { color: #51b7ff; }
-.chapeau .pack.autres:hover { border-color: #51b7ff; background-color: rgba(81, 183, 255, 0.14); }
 @media (max-width: 660px) {
     .chapeau .pack { margin-left: auto; margin-right: auto; }
 }
@@ -704,3 +701,35 @@ a:hover { text-decoration: underline; }
     .entete-ligne { justify-content: center; }
     .wrap { padding-left: 14px; padding-right: 14px; }
 }
+
+/* ---------------------------------------------------------------- */
+/* LES VF DES AUTRES GROUPES                                        */
+/* ---------------------------------------------------------------- */
+.bandeau-autres {
+    display: block;
+    margin: -22px 0 46px 0;
+    padding: 18px 24px;
+    border: 1px solid rgba(81, 183, 255, 0.45);
+    border-radius: 16px;
+    background-color: rgba(81, 183, 255, 0.07);
+    color: #9a92a4;
+    font-size: 15px;
+    line-height: 1.5;
+    text-decoration: none;
+}
+.bandeau-autres strong { display: block; margin-bottom: 4px; color: #51b7ff; font-size: 19px; }
+.bandeau-autres em { display: inline-block; margin-top: 8px; color: #51b7ff; font-style: normal; font-size: 13px; font-weight: 700; }
+.bandeau-autres em:empty { display: none; }
+.bandeau-autres:hover { border-color: #51b7ff; background-color: rgba(81, 183, 255, 0.14); text-decoration: none; }
+
+.filtres .vers-autres {
+    padding: 8px 15px;
+    border: 1px solid rgba(81, 183, 255, 0.45);
+    border-radius: 999px;
+    background-color: rgba(81, 183, 255, 0.07);
+    color: #51b7ff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.filtres .vers-autres:hover { border-color: #51b7ff; background-color: rgba(81, 183, 255, 0.16); }

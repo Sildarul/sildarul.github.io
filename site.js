@@ -139,7 +139,7 @@ function remplir() {
     const machine = grille.dataset.machine || "";
     const ordre = { disponible: 0, soutien: 0, encours: 1, chantier: 2 };
     const liste = PROJETS
-        .filter(function (p) { return !machine || p.machine === machine; })
+        .filter(function (p) { return !machine || machine.split(" ").indexOf(p.machine) >= 0; })
         .slice()
         .sort(function (a, b) { return ordre[a.etat] - ordre[b.etat]; });
 
@@ -223,7 +223,7 @@ function filtres(grille, liste) {
     if (!barre) return;
     const etats = {};
     liste.forEach(function (p) { etats[p.etat] = true; });
-    if (Object.keys(etats).length < 2) { barre.innerHTML = ""; return; }
+    if (Object.keys(etats).length < 2 && !grille.dataset.autres) { barre.innerHTML = ""; return; }
     const choix = [
         ["", "Tout"],
         ["disponible", "Disponibles"],
@@ -243,12 +243,21 @@ function filtres(grille, liste) {
         });
         barre.appendChild(b);
     });
+    /* la page des VF des autres groupes, au bout de la barre */
+    if (grille.dataset.autres) {
+        const a = document.createElement("a");
+        a.className = "vers-autres";
+        a.href = grille.dataset.autres;
+        a.textContent = "Autres groupes";
+        barre.appendChild(a);
+    }
 }
 
 /* les nombres des tuiles : une machine, ou un constructeur entier */
 const MARQUES = {
     nes:      ["nes", "nes_autres"],
-    nintendo: ["nes", "nes_autres", "snes", "n64", "gb", "gba", "gamecube"],
+    autres:   ["nes_autres", "snes_autres"],
+    nintendo: ["nes", "nes_autres", "snes", "snes_autres", "n64", "gb", "gba", "gamecube"],
     sony:     ["ps1", "ps2"],
     sega:     ["mastersystem", "megadrive"]
 };

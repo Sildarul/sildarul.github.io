@@ -7,8 +7,6 @@ COMMENT C'EST FAIT
   arcade.html     les bornes d'arcade
   nintendo.html   la page Nintendo : une tuile par console
     nes.html        NES et Famicom (projet Reset 60)
-    nes-autres.html les VF NES des autres groupes, remises en 60 Hz
-                    (machine: "nes_autres" dans projets.js)
     snes.html       Super Nintendo et Super Famicom (projet Reset 60)
     n64.html        Nintendo 64
     gb.html         Game Boy et Game Boy Color
@@ -21,6 +19,8 @@ COMMENT C'EST FAIT
     mastersystem.html  Master System
     megadrive.html     Mega Drive
   soutiens.html   les traductions reservees aux soutiens Ko-fi
+  autres-groupes.html  les VF des autres groupes ameliorees par nous
+                  (machine: "nes_autres", "snes_autres"... dans projets.js)
   consoles.html   l'ancienne page Consoles : renvoie vers l'accueil
 
   projets.js      LE CATALOGUE. C'est le seul fichier a modifier.

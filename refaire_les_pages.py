@@ -19,7 +19,7 @@ import io, os, re, html, datetime
 
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
 PAGES = {"index.html": None, "arcade.html": "arcade",
-         "nes.html": "nes", "nes-autres.html": "nes_autres", "snes.html": "snes", "n64.html": "n64",
+         "nes.html": "nes", "autres-groupes.html": "nes_autres snes_autres", "snes.html": "snes", "n64.html": "n64",
          "gb.html": "gb", "gba.html": "gba", "gamecube.html": "gamecube",
          "ps1.html": "ps1", "ps2.html": "ps2",
          "mastersystem.html": "mastersystem", "megadrive.html": "megadrive", "soutiens.html": "soutiens"}
@@ -83,7 +83,7 @@ def refaire():
         chemin = os.path.join(DOSSIER, page)
         if not os.path.exists(chemin):
             continue
-        liste = [p for p in projets if not machine or p.get("machine") == machine]
+        liste = [p for p in projets if not machine or p.get("machine") in machine.split()]
         liste.sort(key=lambda p: ORDRE.get(p.get("etat"), 9))
         fiches = "\n".join(fiche(p) for p in liste) if liste else \
             '      <p class="vide">Les premiers jeux arrivent bientôt.</p>'
