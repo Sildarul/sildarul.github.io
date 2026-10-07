@@ -97,6 +97,20 @@ def refaire():
         io.open(chemin, "w", encoding="utf-8").write(t)
         print("%-16s %3d fiches ecrites en dur" % (page, len(liste)))
 
+    # le cache des navigateurs : chaque passage donne un nouveau numero aux
+    # fichiers communs, pour que personne ne garde un ancien habillage ou un
+    # ancien moteur apres une mise a jour
+    version = datetime.datetime.now().strftime("%Y%m%d%H%M")
+    for page in list(PAGES) + AUTRES + ["consoles.html"]:
+        chemin = os.path.join(DOSSIER, page)
+        if not os.path.exists(chemin):
+            continue
+        t = io.open(chemin, encoding="utf-8").read()
+        t = re.sub(r'(href|src)="(style\.css|site\.js|projets\.js)(\?v=\w+)?"',
+                   lambda m: '%s="%s?v=%s"' % (m.group(1), m.group(2), version), t)
+        io.open(chemin, "w", encoding="utf-8").write(t)
+    print("fichiers communs numerotes", version)
+
     aujourdhui = datetime.date.today().isoformat()
     s = ['<?xml version="1.0" encoding="UTF-8"?>',
          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
