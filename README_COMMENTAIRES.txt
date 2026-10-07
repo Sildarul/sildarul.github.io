@@ -7,6 +7,8 @@ COMMENT C'EST FAIT
   arcade.html     les bornes d'arcade
   nintendo.html   la page Nintendo : une tuile par console
     nes.html        NES et Famicom (projet Reset 60)
+    nes-autres.html les VF NES des autres groupes, remises en 60 Hz
+                    (machine: "nes_autres" dans projets.js)
     snes.html       Super Nintendo et Super Famicom (projet Reset 60)
     n64.html        Nintendo 64
     gb.html         Game Boy et Game Boy Color
