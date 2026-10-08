@@ -62,6 +62,12 @@ function fiche(p) {
     titre.textContent = p.titre;
     corps.appendChild(titre);
 
+    if (p.fr) {
+        const f = document.createElement("p");
+        f.className = "titre-fr";
+        f.textContent = p.fr;
+        corps.appendChild(f);
+    }
     if (p.genre) {
         const g = document.createElement("p");
         g.className = "genre";
@@ -184,7 +190,7 @@ function appliquer(grille, liste) {
     const mot = aplatir(tri.mot);
     const garde = liste.filter(function (p) {
         if (tri.etat && p.etat !== tri.etat) return false;
-        return !mot || aplatir(p.titre).indexOf(mot) >= 0;
+        return !mot || aplatir(p.titre + " " + (p.fr || "")).indexOf(mot) >= 0;
     });
     if (!garde.length && liste.length) {
         grille.innerHTML = "";

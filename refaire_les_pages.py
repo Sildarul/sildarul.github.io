@@ -61,6 +61,8 @@ def fiche(p):
           '        </div>',
           '        <div class="corps">',
           '          <h3>%s</h3>' % t]
+    if p.get("fr"):
+        L.append('          <p class="titre-fr">%s</p>' % html.escape(p["fr"]))
     if p.get("genre"):
         L.append('          <p class="genre">%s</p>' % html.escape(p["genre"]))
     if p.get("note"):

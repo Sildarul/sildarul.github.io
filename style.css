@@ -596,6 +596,16 @@ a:hover { text-decoration: underline; }
     line-height: 1.25;
 }
 
+.corps .titre-fr {
+    margin: -2px 0 6px 0;
+    color: #f7f1e7;
+    font-size: 15px;
+    font-style: italic;
+    opacity: 0.85;
+}
+.corps .titre-fr::before { content: "« "; }
+.corps .titre-fr::after  { content: " »"; }
+
 .corps .genre {
     margin: 0 0 2px 0;
     color: #51b7ff;

@@ -11,6 +11,8 @@
        machine:  "arcade",          arcade | nes | nes_autres | snes | snes_autres | n64 | gb | gamecube
                                     ps1 | ps2 | mastersystem | megadrive | soutiens
        etat:     "disponible",      disponible | encours | chantier | soutien
+       fr:       "Titre traduit",   facultatif : le titre en francais d'un jeu
+                                    japonais, ecrit sous le titre d'origine
        genre:    "Traduction FR",   ce qu'on a fait dessus
        note:     "une phrase",      facultatif, s'affiche sous le titre
        image:    "assets/xxx.jpg",  facultatif ; sans image, une tuile
@@ -651,13 +653,13 @@ const PROJETS = [
   { titre: "Fighter's History", machine: "snes", etat: "encours",
     genre: "Traduction FR", note: "Data East 1994", image: "assets/banner_snes_fighters_history.jpg",
     lien: "" },
-  { titre: "Ranma ½ : Chounai Gekitou Hen", machine: "snes", etat: "disponible",
+  { titre: "Ranma ½ : Chounai Gekitou Hen", fr: "Bagarre au quartier", machine: "snes", etat: "disponible",
     genre: "Traduction FR depuis le japonais", note: "NCS 1992", image: "assets/banner_snes_ranma_chounai_gekitou_hen.jpg",
     lien: "https://drive.google.com/file/d/1g976DQioOMGam6wQDj6BFni6Mk67scaU/view?usp=sharing" },
   { titre: "Super Mario Kart", machine: "snes", etat: "disponible",
     genre: "Traduction FR", note: "Nintendo 1992", image: "assets/banner_snes_super_mario_kart.jpg",
     lien: "https://drive.google.com/file/d/1qN0MgxJj3ztC7bLaJjSH8ZzwvN6XhoxN/view?usp=sharing" },
-  { titre: "Ranma ½ : Chougi Ranbu Hen", machine: "snes", etat: "disponible",
+  { titre: "Ranma ½ : Chougi Ranbu Hen", fr: "Combat acharné", machine: "snes", etat: "disponible",
     genre: "Traduction FR depuis le japonais", note: "Rumic Soft 1994 · avec le patch de fluidité d'Upsilandre", image: "assets/banner_snes_ranma_chougi_ranbu_hen.jpg",
     lien: "https://drive.google.com/file/d/1kKHJPpioYDT9YcZNZ8INZd2bvK5bBd8k/view?usp=sharing" },
 
