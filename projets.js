@@ -678,7 +678,7 @@ const PROJETS = [
   { titre: "Sweet Home", fr: "Doux foyer", machine: "soutiens", etat: "soutien",
     genre: "Traduction FR depuis le japonais", image: "assets/banner_soutiens_sweet_home.jpg",
     lien: "https://ko-fi.com/s/3d0d482cd2" },
-  { titre: "Ushio to Tora", machine: "soutiens", etat: "soutien",
+  { titre: "Ushio et Tora", machine: "soutiens", etat: "soutien",
     genre: "Traduction FR depuis le japonais", note: "Super Famicom", image: "assets/banner_soutiens_ushio_to_tora.jpg",
     lien: "https://ko-fi.com/s/3d0d482cd2" },
   { titre: "Ultraman Club 3", machine: "soutiens", etat: "soutien",
