@@ -661,7 +661,7 @@ const PROJETS = [
     lien: "https://drive.google.com/file/d/1qN0MgxJj3ztC7bLaJjSH8ZzwvN6XhoxN/view?usp=sharing" },
   { titre: "Ranma ½ : Chougi Ranbu Hen", fr: "Combat acharné", machine: "snes", etat: "disponible",
     genre: "Traduction FR depuis le japonais", note: "Rumic Soft 1994 · avec le patch de fluidité d'Upsilandre", image: "assets/banner_snes_ranma_chougi_ranbu_hen.jpg",
-    lien: "https://drive.google.com/file/d/1kKHJPpioYDT9YcZNZ8INZd2bvK5bBd8k/view?usp=sharing" },
+    lien: "https://drive.google.com/file/d/1IETt6-W9rWH8U9qDnNnAstLNKkg9Gc0G/view?usp=sharing" },
 
   /* ====================== POUR LES SOUTIENS ======================= */
   /* Traductions reservees a ceux qui soutiennent sur Ko-fi. Le lien est
