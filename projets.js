@@ -675,7 +675,7 @@ const PROJETS = [
   { titre: "L'Empereur", machine: "soutiens", etat: "soutien",
     genre: "Traduction FR", note: "Koei", image: "assets/banner_nes_empereur.jpg",
     lien: "https://ko-fi.com/s/3d0d482cd2" },
-  { titre: "Sweet Home", machine: "soutiens", etat: "soutien",
+  { titre: "Sweet Home", fr: "Doux foyer", machine: "soutiens", etat: "soutien",
     genre: "Traduction FR depuis le japonais", image: "assets/banner_soutiens_sweet_home.jpg",
     lien: "https://ko-fi.com/s/3d0d482cd2" },
   { titre: "Ushio to Tora", machine: "soutiens", etat: "soutien",
