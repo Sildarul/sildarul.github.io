@@ -743,3 +743,37 @@ a:hover { text-decoration: underline; }
     text-decoration: none;
 }
 .filtres .vers-autres:hover { border-color: #51b7ff; background-color: rgba(81, 183, 255, 0.16); }
+
+.livre {
+    display: flex;
+    gap: 26px;
+    align-items: center;
+    margin: -24px 0 46px 0;
+    padding: 22px 24px;
+    border: 1px solid rgba(242, 200, 79, 0.45);
+    border-radius: 16px;
+    background-color: rgba(242, 200, 79, 0.06);
+}
+.livre-couv { width: 150px; height: auto; border-radius: 6px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); flex-shrink: 0; }
+.livre-texte { color: #9a92a4; font-size: 15px; line-height: 1.5; }
+.livre-texte p { margin: 0 0 6px 0; }
+.livre-etiquette { color: #f2c84f; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.livre h2 { margin: 4px 0 2px 0; color: #f7f1e7; font-size: 26px; line-height: 1.2; }
+.livre-sous { color: #f2c84f; font-weight: 700; }
+.livre-auteurs { font-style: italic; }
+.livre-boutons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.livre-boutons a {
+    padding: 9px 18px;
+    border: 1px solid #f2c84f;
+    border-radius: 999px;
+    color: #f2c84f;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+.livre-boutons a b { margin-left: 6px; color: #f7f1e7; }
+.livre-boutons a:hover { background-color: rgba(242, 200, 79, 0.16); }
+@media (max-width: 560px) {
+    .livre { flex-direction: column; align-items: flex-start; }
+    .livre-couv { width: 120px; }
+}
