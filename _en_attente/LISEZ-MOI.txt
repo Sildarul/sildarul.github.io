@@ -1,0 +1,3 @@
+Fiches du pack special Super Famicom, a coller dans projets.js (apres Ultraman Club 3)
+quand le pack Ko-fi existe : remplacer A_REMPLIR_LIEN_KOFI_DU_PACK par son lien.
+Dossier en _ : GitHub Pages ne le publie pas.
