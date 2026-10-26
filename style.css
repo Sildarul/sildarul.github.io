@@ -777,3 +777,64 @@ a:hover { text-decoration: underline; }
     .livre { flex-direction: column; align-items: flex-start; }
     .livre-couv { width: 120px; }
 }
+
+/* ---------------------------------------------------------------- */
+/* NOS CHOIX DE TRADUCTION (page d'accueil)                         */
+/* ---------------------------------------------------------------- */
+.choix { padding-top: 10px; margin-bottom: 40px; }
+.choix-tete { max-width: 760px; margin-bottom: 28px; }
+.choix-etiquette { color: #b91522; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+.choix-tete h1 { margin: 6px 0 6px 0; font-size: 40px; line-height: 1.08; font-weight: 800; letter-spacing: -0.5px; }
+.choix-sous { margin: 0 0 14px 0; color: #f2c84f; font-style: italic; }
+.choix-tete p { color: #c9c1d2; font-size: 17px; line-height: 1.6; }
+.choix-grille { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.choix-carte {
+    position: relative;
+    padding: 22px 24px 20px 24px;
+    border: 1px solid #2a2530;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.025);
+    color: #c9c1d2;
+    font-size: 15.5px;
+    line-height: 1.6;
+}
+.choix-carte.large { grid-column: 1 / -1; }
+.choix-carte:hover { border-color: rgba(185, 21, 34, 0.6); }
+.choix-carte h3 { margin: 0 0 8px 0; padding-right: 44px; color: #f7f1e7; font-size: 20px; line-height: 1.25; }
+.choix-carte p { margin: 0 0 10px 0; }
+.choix-carte p:last-child { margin-bottom: 0; }
+.choix-carte strong { color: #f7f1e7; }
+.choix-carte ul { margin: 0; padding-left: 20px; }
+.choix-carte li { margin-bottom: 6px; }
+.choix-num {
+    position: absolute; top: 18px; right: 20px;
+    font-family: "Courier New", monospace; font-size: 15px; font-weight: 800;
+    color: #b91522; letter-spacing: 1px;
+}
+/* l'echelle des mots : du plus long au plus court */
+.echelle { margin: 14px 0 16px 0; display: flex; flex-direction: column; gap: 8px; }
+.echelle-ligne { display: grid; grid-template-columns: 1.1fr 1.6fr 1.2fr 1fr; gap: 8px; align-items: center; }
+.echelle-tete span { color: #9a92a4; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.echelle-en, .echelle-fr {
+    padding: 8px 10px; border-radius: 8px;
+    font-family: "Courier New", monospace; font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+}
+.echelle-en { color: #9a92a4; border: 1px dashed #3a3442; }
+.echelle-fr { color: #0d0b10; }
+.echelle-fr.m1 { background-color: #44d760; }
+.echelle-fr.m2 { background-color: #f2c84f; }
+.echelle-fr.m3 { background-color: #e8833a; }
+.choix-cri {
+    margin-top: 14px !important; padding: 10px 14px;
+    border-left: 3px solid #b91522; background-color: rgba(185, 21, 34, 0.10); border-radius: 0 8px 8px 0;
+}
+.choix-fin { margin: 26px auto 0 auto; max-width: 720px; text-align: center; color: #9a92a4; font-style: italic; }
+@media (max-width: 760px) {
+    .choix-grille { grid-template-columns: 1fr; }
+    .choix-tete h1 { font-size: 32px; }
+    .echelle-tete { display: none; }
+    .echelle-ligne { grid-template-columns: 1fr; gap: 4px; padding-bottom: 8px; border-bottom: 1px solid #2a2530; }
+    .echelle-fr.m1::before { content: "Si ça rentre — "; font-weight: 400; }
+    .echelle-fr.m2::before { content: "Si ça manque — "; font-weight: 400; }
+    .echelle-fr.m3::before { content: "En dernier recours — "; font-weight: 400; }
+}

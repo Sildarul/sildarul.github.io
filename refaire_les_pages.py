@@ -18,13 +18,13 @@ A RELANCER a chaque fois que projets.js change. Rien d'autre a faire.
 import io, os, re, html, datetime
 
 DOSSIER = os.path.dirname(os.path.abspath(__file__))
-PAGES = {"index.html": None, "arcade.html": "arcade",
+PAGES = {"arcade.html": "arcade",
          "nes.html": "nes", "autres-groupes.html": "nes_autres snes_autres", "snes.html": "snes", "n64.html": "n64",
          "gb.html": "gb", "gba.html": "gba", "gamecube.html": "gamecube",
          "ps1.html": "ps1", "ps2.html": "ps2",
          "mastersystem.html": "mastersystem", "megadrive.html": "megadrive", "soutiens.html": "soutiens"}
-# les pages sans fiches (constructeurs) : seulement dans le sitemap
-AUTRES = ["nintendo.html", "sony.html", "sega.html"]
+# les pages sans fiches (accueil, constructeurs) : seulement dans le sitemap
+AUTRES = ["index.html", "nintendo.html", "sony.html", "sega.html"]
 ADRESSE = "https://sildarul.github.io/"
 LIBELLE = {"disponible": "Disponible", "encours": "En cours", "chantier": "En chantier",
            "soutien": "Soutiens"}
